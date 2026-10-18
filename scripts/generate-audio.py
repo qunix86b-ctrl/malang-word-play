@@ -12,7 +12,7 @@ VOICES = {'ko': 'ko-KR-SunHiNeural', 'en': 'en-US-JennyNeural'}
 
 async def main():
     words = json.loads((ROOT / 'scripts/words.json').read_text(encoding='utf-8'))
-    tasks = [(w, lang) for w in words for lang in ('ko', 'en') if not (w['category'] == 'hangul' and lang == 'en')]
+    tasks = [(w, lang) for w in words for lang in ('ko', 'en') if not (w['category'] == 'hangul' and lang == 'en') and not (w.get('speechText') and lang == 'ko')]
     game_path = ROOT / 'scripts/game-audio.json'
     if game_path.exists():
         tasks += [({'id': p['file'], p['language']: p['text']}, p['language']) for p in json.loads(game_path.read_text(encoding='utf-8'))]

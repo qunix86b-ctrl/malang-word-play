@@ -4,6 +4,8 @@ export const categories = [
   {id:'things', label:'물건', en:'Things', icon:'🧸', color:'#e9e5fa', subtitle:'우리 곁에 있는 물건을 찾아봐요.'},
   {id:'numbers', label:'숫자', en:'Numbers', icon:'🔢', color:'#e2effa', subtitle:'하나, 둘! 함께 세어 볼까요?'},
   {id:'hangul', label:'한글', en:'Hangul', icon:'가', color:'#ffedc7', subtitle:'가나다, 말소리와 친해져요.'},
+  {id:'uppercase', label:'대문자', en:'Uppercase', icon:'ABC', color:'#e2eefb', subtitle:'A부터 Z까지, 알파벳 친구들을 만나요.'},
+  {id:'lowercase', label:'소문자', en:'Lowercase', icon:'abc', color:'#f0e4f7', subtitle:'작은 알파벳 a부터 z까지 함께 배워요.'},
 ];
 const animalNames = [
 ['강아지','Dog'],['고양이','Cat'],['토끼','Rabbit'],['곰','Bear'],['사자','Lion'],['호랑이','Tiger'],
@@ -28,12 +30,18 @@ const enNumbers = ['One','Two','Three','Four','Five','Six','Seven','Eight','Nine
 const syllables = ['가','나','다','라','마','바','사','아','자','차','카','타','파','하','거','너','더','러','머','버','서','어','저','처','커','터','퍼','허','고','노'];
 const romanized = ['ga','na','da','ra','ma','ba','sa','a','ja','cha','ka','ta','pa','ha','geo','neo','deo','reo','meo','beo','seo','eo','jeo','cheo','keo','teo','peo','heo','go','no'];
 const make = (category, names) => names.map(([ko,en],index)=>({id:`${category}-${index+1}`,category,index,ko,en}));
+const letterNames=['에이','비','씨','디','이','에프','지','에이치','아이','제이','케이','엘','엠','엔','오','피','큐','알','에스','티','유','브이','더블유','엑스','와이','지'];
+const alphabet=category=>Array.from({length:26},(_,index)=>{
+  const upper=String.fromCharCode(65+index),symbol=category==='uppercase'?upper:upper.toLowerCase();
+  return {id:`${category}-${index+1}`,category,index,ko:symbol,en:symbol,symbol,letterName:letterNames[index],speechText:upper};
+});
 export const words = [
   ...make('animals',animalNames), ...make('food',foodNames), ...make('things',thingNames),
   ...koNumbers.map((ko,index)=>({id:`numbers-${index+1}`,category:'numbers',index,ko,en:enNumbers[index],symbol:String(index+1)})),
   ...syllables.map((ko,index)=>({id:`hangul-${index+1}`,category:'hangul',index,ko,en:romanized[index],symbol:ko})),
+  ...alphabet('uppercase'),...alphabet('lowercase'),
 ];
 export const getSpeech = (word, language) => ({
-  text: word.category === 'hangul' ? word.ko : word[language],
-  language: word.category === 'hangul' ? 'ko' : language,
+  text: word.speechText || (word.category === 'hangul' ? word.ko : word[language]),
+  language: word.speechText ? 'en' : word.category === 'hangul' ? 'ko' : language,
 });

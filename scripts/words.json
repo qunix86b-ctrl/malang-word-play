@@ -1108,5 +1108,525 @@
     "ko": "노",
     "en": "no",
     "symbol": "노"
+  },
+  {
+    "id": "uppercase-1",
+    "category": "uppercase",
+    "index": 0,
+    "ko": "A",
+    "en": "A",
+    "symbol": "A",
+    "letterName": "에이",
+    "speechText": "A"
+  },
+  {
+    "id": "uppercase-2",
+    "category": "uppercase",
+    "index": 1,
+    "ko": "B",
+    "en": "B",
+    "symbol": "B",
+    "letterName": "비",
+    "speechText": "B"
+  },
+  {
+    "id": "uppercase-3",
+    "category": "uppercase",
+    "index": 2,
+    "ko": "C",
+    "en": "C",
+    "symbol": "C",
+    "letterName": "씨",
+    "speechText": "C"
+  },
+  {
+    "id": "uppercase-4",
+    "category": "uppercase",
+    "index": 3,
+    "ko": "D",
+    "en": "D",
+    "symbol": "D",
+    "letterName": "디",
+    "speechText": "D"
+  },
+  {
+    "id": "uppercase-5",
+    "category": "uppercase",
+    "index": 4,
+    "ko": "E",
+    "en": "E",
+    "symbol": "E",
+    "letterName": "이",
+    "speechText": "E"
+  },
+  {
+    "id": "uppercase-6",
+    "category": "uppercase",
+    "index": 5,
+    "ko": "F",
+    "en": "F",
+    "symbol": "F",
+    "letterName": "에프",
+    "speechText": "F"
+  },
+  {
+    "id": "uppercase-7",
+    "category": "uppercase",
+    "index": 6,
+    "ko": "G",
+    "en": "G",
+    "symbol": "G",
+    "letterName": "지",
+    "speechText": "G"
+  },
+  {
+    "id": "uppercase-8",
+    "category": "uppercase",
+    "index": 7,
+    "ko": "H",
+    "en": "H",
+    "symbol": "H",
+    "letterName": "에이치",
+    "speechText": "H"
+  },
+  {
+    "id": "uppercase-9",
+    "category": "uppercase",
+    "index": 8,
+    "ko": "I",
+    "en": "I",
+    "symbol": "I",
+    "letterName": "아이",
+    "speechText": "I"
+  },
+  {
+    "id": "uppercase-10",
+    "category": "uppercase",
+    "index": 9,
+    "ko": "J",
+    "en": "J",
+    "symbol": "J",
+    "letterName": "제이",
+    "speechText": "J"
+  },
+  {
+    "id": "uppercase-11",
+    "category": "uppercase",
+    "index": 10,
+    "ko": "K",
+    "en": "K",
+    "symbol": "K",
+    "letterName": "케이",
+    "speechText": "K"
+  },
+  {
+    "id": "uppercase-12",
+    "category": "uppercase",
+    "index": 11,
+    "ko": "L",
+    "en": "L",
+    "symbol": "L",
+    "letterName": "엘",
+    "speechText": "L"
+  },
+  {
+    "id": "uppercase-13",
+    "category": "uppercase",
+    "index": 12,
+    "ko": "M",
+    "en": "M",
+    "symbol": "M",
+    "letterName": "엠",
+    "speechText": "M"
+  },
+  {
+    "id": "uppercase-14",
+    "category": "uppercase",
+    "index": 13,
+    "ko": "N",
+    "en": "N",
+    "symbol": "N",
+    "letterName": "엔",
+    "speechText": "N"
+  },
+  {
+    "id": "uppercase-15",
+    "category": "uppercase",
+    "index": 14,
+    "ko": "O",
+    "en": "O",
+    "symbol": "O",
+    "letterName": "오",
+    "speechText": "O"
+  },
+  {
+    "id": "uppercase-16",
+    "category": "uppercase",
+    "index": 15,
+    "ko": "P",
+    "en": "P",
+    "symbol": "P",
+    "letterName": "피",
+    "speechText": "P"
+  },
+  {
+    "id": "uppercase-17",
+    "category": "uppercase",
+    "index": 16,
+    "ko": "Q",
+    "en": "Q",
+    "symbol": "Q",
+    "letterName": "큐",
+    "speechText": "Q"
+  },
+  {
+    "id": "uppercase-18",
+    "category": "uppercase",
+    "index": 17,
+    "ko": "R",
+    "en": "R",
+    "symbol": "R",
+    "letterName": "알",
+    "speechText": "R"
+  },
+  {
+    "id": "uppercase-19",
+    "category": "uppercase",
+    "index": 18,
+    "ko": "S",
+    "en": "S",
+    "symbol": "S",
+    "letterName": "에스",
+    "speechText": "S"
+  },
+  {
+    "id": "uppercase-20",
+    "category": "uppercase",
+    "index": 19,
+    "ko": "T",
+    "en": "T",
+    "symbol": "T",
+    "letterName": "티",
+    "speechText": "T"
+  },
+  {
+    "id": "uppercase-21",
+    "category": "uppercase",
+    "index": 20,
+    "ko": "U",
+    "en": "U",
+    "symbol": "U",
+    "letterName": "유",
+    "speechText": "U"
+  },
+  {
+    "id": "uppercase-22",
+    "category": "uppercase",
+    "index": 21,
+    "ko": "V",
+    "en": "V",
+    "symbol": "V",
+    "letterName": "브이",
+    "speechText": "V"
+  },
+  {
+    "id": "uppercase-23",
+    "category": "uppercase",
+    "index": 22,
+    "ko": "W",
+    "en": "W",
+    "symbol": "W",
+    "letterName": "더블유",
+    "speechText": "W"
+  },
+  {
+    "id": "uppercase-24",
+    "category": "uppercase",
+    "index": 23,
+    "ko": "X",
+    "en": "X",
+    "symbol": "X",
+    "letterName": "엑스",
+    "speechText": "X"
+  },
+  {
+    "id": "uppercase-25",
+    "category": "uppercase",
+    "index": 24,
+    "ko": "Y",
+    "en": "Y",
+    "symbol": "Y",
+    "letterName": "와이",
+    "speechText": "Y"
+  },
+  {
+    "id": "uppercase-26",
+    "category": "uppercase",
+    "index": 25,
+    "ko": "Z",
+    "en": "Z",
+    "symbol": "Z",
+    "letterName": "지",
+    "speechText": "Z"
+  },
+  {
+    "id": "lowercase-1",
+    "category": "lowercase",
+    "index": 0,
+    "ko": "a",
+    "en": "A",
+    "symbol": "a",
+    "letterName": "에이",
+    "speechText": "A"
+  },
+  {
+    "id": "lowercase-2",
+    "category": "lowercase",
+    "index": 1,
+    "ko": "b",
+    "en": "B",
+    "symbol": "b",
+    "letterName": "비",
+    "speechText": "B"
+  },
+  {
+    "id": "lowercase-3",
+    "category": "lowercase",
+    "index": 2,
+    "ko": "c",
+    "en": "C",
+    "symbol": "c",
+    "letterName": "씨",
+    "speechText": "C"
+  },
+  {
+    "id": "lowercase-4",
+    "category": "lowercase",
+    "index": 3,
+    "ko": "d",
+    "en": "D",
+    "symbol": "d",
+    "letterName": "디",
+    "speechText": "D"
+  },
+  {
+    "id": "lowercase-5",
+    "category": "lowercase",
+    "index": 4,
+    "ko": "e",
+    "en": "E",
+    "symbol": "e",
+    "letterName": "이",
+    "speechText": "E"
+  },
+  {
+    "id": "lowercase-6",
+    "category": "lowercase",
+    "index": 5,
+    "ko": "f",
+    "en": "F",
+    "symbol": "f",
+    "letterName": "에프",
+    "speechText": "F"
+  },
+  {
+    "id": "lowercase-7",
+    "category": "lowercase",
+    "index": 6,
+    "ko": "g",
+    "en": "G",
+    "symbol": "g",
+    "letterName": "지",
+    "speechText": "G"
+  },
+  {
+    "id": "lowercase-8",
+    "category": "lowercase",
+    "index": 7,
+    "ko": "h",
+    "en": "H",
+    "symbol": "h",
+    "letterName": "에이치",
+    "speechText": "H"
+  },
+  {
+    "id": "lowercase-9",
+    "category": "lowercase",
+    "index": 8,
+    "ko": "i",
+    "en": "I",
+    "symbol": "i",
+    "letterName": "아이",
+    "speechText": "I"
+  },
+  {
+    "id": "lowercase-10",
+    "category": "lowercase",
+    "index": 9,
+    "ko": "j",
+    "en": "J",
+    "symbol": "j",
+    "letterName": "제이",
+    "speechText": "J"
+  },
+  {
+    "id": "lowercase-11",
+    "category": "lowercase",
+    "index": 10,
+    "ko": "k",
+    "en": "K",
+    "symbol": "k",
+    "letterName": "케이",
+    "speechText": "K"
+  },
+  {
+    "id": "lowercase-12",
+    "category": "lowercase",
+    "index": 11,
+    "ko": "l",
+    "en": "L",
+    "symbol": "l",
+    "letterName": "엘",
+    "speechText": "L"
+  },
+  {
+    "id": "lowercase-13",
+    "category": "lowercase",
+    "index": 12,
+    "ko": "m",
+    "en": "M",
+    "symbol": "m",
+    "letterName": "엠",
+    "speechText": "M"
+  },
+  {
+    "id": "lowercase-14",
+    "category": "lowercase",
+    "index": 13,
+    "ko": "n",
+    "en": "N",
+    "symbol": "n",
+    "letterName": "엔",
+    "speechText": "N"
+  },
+  {
+    "id": "lowercase-15",
+    "category": "lowercase",
+    "index": 14,
+    "ko": "o",
+    "en": "O",
+    "symbol": "o",
+    "letterName": "오",
+    "speechText": "O"
+  },
+  {
+    "id": "lowercase-16",
+    "category": "lowercase",
+    "index": 15,
+    "ko": "p",
+    "en": "P",
+    "symbol": "p",
+    "letterName": "피",
+    "speechText": "P"
+  },
+  {
+    "id": "lowercase-17",
+    "category": "lowercase",
+    "index": 16,
+    "ko": "q",
+    "en": "Q",
+    "symbol": "q",
+    "letterName": "큐",
+    "speechText": "Q"
+  },
+  {
+    "id": "lowercase-18",
+    "category": "lowercase",
+    "index": 17,
+    "ko": "r",
+    "en": "R",
+    "symbol": "r",
+    "letterName": "알",
+    "speechText": "R"
+  },
+  {
+    "id": "lowercase-19",
+    "category": "lowercase",
+    "index": 18,
+    "ko": "s",
+    "en": "S",
+    "symbol": "s",
+    "letterName": "에스",
+    "speechText": "S"
+  },
+  {
+    "id": "lowercase-20",
+    "category": "lowercase",
+    "index": 19,
+    "ko": "t",
+    "en": "T",
+    "symbol": "t",
+    "letterName": "티",
+    "speechText": "T"
+  },
+  {
+    "id": "lowercase-21",
+    "category": "lowercase",
+    "index": 20,
+    "ko": "u",
+    "en": "U",
+    "symbol": "u",
+    "letterName": "유",
+    "speechText": "U"
+  },
+  {
+    "id": "lowercase-22",
+    "category": "lowercase",
+    "index": 21,
+    "ko": "v",
+    "en": "V",
+    "symbol": "v",
+    "letterName": "브이",
+    "speechText": "V"
+  },
+  {
+    "id": "lowercase-23",
+    "category": "lowercase",
+    "index": 22,
+    "ko": "w",
+    "en": "W",
+    "symbol": "w",
+    "letterName": "더블유",
+    "speechText": "W"
+  },
+  {
+    "id": "lowercase-24",
+    "category": "lowercase",
+    "index": 23,
+    "ko": "x",
+    "en": "X",
+    "symbol": "x",
+    "letterName": "엑스",
+    "speechText": "X"
+  },
+  {
+    "id": "lowercase-25",
+    "category": "lowercase",
+    "index": 24,
+    "ko": "y",
+    "en": "Y",
+    "symbol": "y",
+    "letterName": "와이",
+    "speechText": "Y"
+  },
+  {
+    "id": "lowercase-26",
+    "category": "lowercase",
+    "index": 25,
+    "ko": "z",
+    "en": "Z",
+    "symbol": "z",
+    "letterName": "지",
+    "speechText": "Z"
   }
 ]

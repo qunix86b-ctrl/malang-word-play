@@ -6,6 +6,7 @@ import { categories, words } from './data.js';
 import { sticker } from './stickers.js';
 import { speak, stopAudio, playBlob, playPrompt } from './audio.js';
 import { question, feedback, nextTarget } from './game.js';
+import { microphoneStatus, requestMicrophone, openMicrophoneSettings, isAndroidApp } from './permissions.js';
 import { allRecordings, getRecording, saveRecordings, deleteRecording, recordingKey } from './storage.js';
 
 const defaults={lang:'ko',voice:'mom',rate:0.9,labels:true};
@@ -22,15 +23,20 @@ const seen=new Set();
 function visibleWords(){const items=words.filter(w=>w.category===category);return tabletQuery.matches?items:items.slice(page*6,page*6+6);}
 function cancelRound(){clearTimeout(nextTimer);gameEpoch++;stopAudio();}
 function resetRound(){cancelRound();target=null;solved=false;seen.clear();}
-async function sayPrompt(prompt){try{await playPrompt(prompt,settings.rate);}catch{toast('소리를 재생하지 못했어요. 다시 듣기를 눌러 주세요.');}}
+async function sayPrompt(prompt){try{return await playPrompt(prompt,settings.rate);}catch{toast('소리를 재생하지 못했어요. 다시 듣기를 눌러 주세요.');return false;}}
 function newRound(){cancelRound();target=nextTarget(visibleWords(),seen,target?.id);solved=false;render();sayPrompt(question(target,settings.lang));}
-function chooseWord(word,button){
+async function chooseWord(word,button){
   if(!gameMode){playWord(word,button);return;}
   if(solved||!target)return;
   const correct=word.id===target.id;
   document.querySelector('#game-feedback').textContent=feedback(correct,settings.lang).text;
-  sayPrompt(feedback(correct,settings.lang));
-  if(correct){solved=true;button.classList.add('found');const epoch=gameEpoch;nextTimer=setTimeout(()=>{if(epoch===gameEpoch&&gameMode&&!modal.open&&!document.hidden)newRound();},2800);}
+  if(!correct){sayPrompt(feedback(false,settings.lang));return;}
+  solved=true;button.classList.add('found');const epoch=gameEpoch;
+  const repeat=document.querySelector('#repeat-question');repeat.disabled=true;
+  const completed=await sayPrompt(feedback(true,settings.lang));
+  if(epoch!==gameEpoch||!gameMode||modal.open||document.hidden)return;
+  if(completed)nextTimer=setTimeout(()=>{if(epoch===gameEpoch&&gameMode&&!modal.open&&!document.hidden)newRound();},500);
+  else {repeat.disabled=false;repeat.innerHTML='다음 문제 →';}
 }
 tabletQuery.addEventListener('change',()=>{resetRound();page=0;if(gameMode)newRound();else render();});
 let recorder, stream, recordingTimer, draft, recordContext, recordingGeneration=0;
@@ -43,7 +49,7 @@ function render(){
   document.documentElement.lang=settings.lang;
   app.innerHTML=`<div class="shell"><header><a class="brand" href="./" aria-label="말랑말랑 처음으로"><img src="./icon.svg" alt=""/><span>말랑말랑<small>우리 아이 첫 단어 친구</small></span></a><div class="top-actions"><div class="language" aria-label="언어 선택"><button data-lang="ko" class="${settings.lang==='ko'?'active':''}" aria-pressed="${settings.lang==='ko'}">한국어</button><button data-lang="en" class="${settings.lang==='en'?'active':''}" aria-pressed="${settings.lang==='en'}">English</button></div><button class="settings-button" id="settings" aria-label="보호자 설정">${icons.gear}<span>보호자</span></button></div></header>
   <main><section class="intro"><div><p class="eyebrow">작은 손으로, 넓은 세상을</p><h1>톡! 누르면 <span>말해 줘요</span><i>✦</i></h1><p>${cat.subtitle}</p></div><div class="voice-pill">${icons.sound}<span>${settings.voice==='ai'?'AI 목소리':settings.voice==='mom'?'가족 목소리 우선':'아이 목소리 우선'}<small>녹음이 없으면 AI 목소리로</small></span><b class="green-dot"></b></div></section>
-  <nav class="tabs" aria-label="단어 종류">${categories.map(c=>`<button data-category="${c.id}" class="tab ${category===c.id?'active':''}" aria-pressed="${category===c.id}" style="--tab-color:${c.color}"><span class="tab-icon">${c.icon}</span>${settings.lang==='ko'?c.label:c.en}<small>30</small></button>`).join('')}</nav>
+  <nav class="tabs" aria-label="단어 종류">${categories.map(c=>`<button data-category="${c.id}" class="tab ${category===c.id?'active':''}" aria-pressed="${category===c.id}" style="--tab-color:${c.color}"><span class="tab-icon">${c.icon}</span>${settings.lang==='ko'?c.label:c.en}<small>${words.filter(w=>w.category===c.id).length}</small></button>`).join('')}</nav>
   <section class="play-area" aria-label="${cat.label} 스티커"><div class="section-heading"><h2>${cat.icon} ${settings.lang==='ko'?cat.label:cat.en} <span>친구들</span></h2><div class="mode-switch"><button id="listen-mode" aria-pressed="${!gameMode}">톡톡 듣기</button><button id="find-mode" aria-pressed="${gameMode}">🔎 찾기 놀이</button></div></div>
   ${gameMode?`<div class="game-bar"><div><strong id="game-question">${target?question(target,settings.lang).text:''}</strong><span id="game-feedback" role="status">${settings.lang==='ko'?'어디에 있을까요?':'Where is it?'}</span></div><button id="repeat-question" aria-label="문제 다시 듣기">${icons.sound}<span>다시 듣기</span></button></div>`:''}
   <div class="cards">${shown.map((w,i)=>`<button class="word-card color-${i%6}" data-word="${w.id}" aria-label="${w[settings.lang]} ${gameMode?'선택':'듣기'}">${sticker(w)}${settings.labels?`<strong>${w.category==='hangul'?w.ko:w[settings.lang]}</strong><span class="translation">${w.category==='hangul'?(settings.lang==='en'?w.en:'소리 내어 읽어요'):w[settings.lang==='ko'?'en':'ko']}</span>`:''}<span class="sound-badge">${icons.sound}</span></button>`).join('')}</div>
@@ -82,7 +88,7 @@ function openSettings(){
   <div class="setting-row"><label for="rate">AI 음성 속도</label><select id="rate"><option value="0.8">천천히</option><option value="0.9">조금 천천히</option><option value="1">보통</option></select></div>
   <div class="setting-row"><label for="labels">그림 아래 단어 보기</label><input id="labels" type="checkbox" ${settings.labels?'checked':''}/></div>
   <div class="setting-section"><h3>녹음 보관하기</h3><p class="help">녹음은 이 기기에만 저장돼요. 앱 삭제나 브라우저 데이터 삭제 전에 파일로 보관해 주세요. 다른 기기로 자동 전송되지 않아요.</p><div class="button-row"><button class="secondary" id="export">녹음 내보내기</button><button class="secondary" id="import">녹음 가져오기</button></div><input hidden id="backup-file" type="file" accept="application/json,.json"/></div>
-  <div class="setting-section install-section"><h3>앱으로 사용하기</h3><p class="help">${Capacitor.isNativePlatform()?'안드로이드 앱으로 실행 중이에요.':'갤럭시 Chrome 메뉴에서 “홈 화면에 추가” 또는 “앱 설치”를 선택하세요. 처음에는 인터넷에 연결해 주세요.'}</p>${installPrompt?'<button class="secondary" id="install">앱 설치하기</button>':''}<p class="privacy-note">로그인·광고·추적 없이 이용해요.<br/>사진 스티커와 기본 음성은 AI로 만들어졌어요. v1.1.0</p></div>`);wireClose();
+  <div class="setting-section install-section"><h3>앱으로 사용하기</h3><p class="help">${Capacitor.isNativePlatform()?'안드로이드 앱으로 실행 중이에요.':'갤럭시 Chrome 메뉴에서 “홈 화면에 추가” 또는 “앱 설치”를 선택하세요. 처음에는 인터넷에 연결해 주세요.'}</p>${installPrompt?'<button class="secondary" id="install">앱 설치하기</button>':''}<p class="privacy-note">로그인·광고·추적 없이 이용해요.<br/>사진 스티커와 기본 음성은 AI로 만들어졌어요. v1.2.0</p></div>`);wireClose();
   document.querySelectorAll('[data-voice]').forEach(b=>b.onclick=()=>{settings.voice=b.dataset.voice;persist();openSettings();});
   const rate=document.querySelector('#rate');rate.value=settings.rate;rate.onchange=()=>{settings.rate=Number(rate.value);persist();};
   document.querySelector('#labels').onchange=e=>{settings.labels=e.target.checked;persist();};
@@ -98,6 +104,7 @@ async function openRecording(context={category,wordId:words.find(w=>w.category==
   <label class="word-select-label">녹음할 단어<select id="record-word">${items.map(w=>`<option value="${w.id}">${w.ko} · ${w.en}</option>`).join('')}</select></label>
   <div class="record-word">${sticker(word)}<strong>${word.category==='hangul'?word.ko:word[context.lang]}</strong><span>${word.category==='hangul'?'한글은 한국어 발음으로 녹음해 주세요.':'조용한 곳에서 또박또박 말해 주세요.'}</span></div>
   <p id="record-status" class="record-status" role="status">저장된 녹음 확인 중…</p>
+  <div class="mic-panel"><strong>마이크 사용 준비</strong><p id="mic-status" role="status">권한 확인 중…</p><div class="button-row"><button class="secondary" id="mic-permission">마이크 권한 허용하기</button><button class="secondary" id="mic-settings">${isAndroidApp()?'앱 권한 설정 열기':'권한 설정 방법 보기'}</button></div><p class="help" id="mic-help" hidden>${isAndroidApp()?'설정에서 권한 → 마이크 → 앱 사용 중에만 허용을 선택한 뒤 돌아와 주세요.':'주소창 왼쪽 사이트 정보(조절 아이콘/자물쇠) → 권한 또는 사이트 설정 → 마이크 → 허용을 선택하세요. 브라우저 자체의 마이크 권한도 꺼져 있다면 기기 설정 → 앱 → 사용 중인 브라우저 → 권한에서 허용해 주세요.'}</p></div>
   <div class="button-row"><button class="record-main" id="record-start">${icons.mic} 녹음 시작</button><button class="secondary" id="record-stop" disabled>녹음 끝내기</button></div>
   <div class="button-row draft-controls"><button class="secondary" id="preview-draft" disabled>방금 녹음 듣기</button><button class="primary" id="save-record" disabled>이 목소리 저장</button></div>
   <div class="saved-controls"><button class="text-button" id="play-saved" disabled>저장된 목소리 듣기</button><button class="text-button danger" id="delete-saved" disabled>저장된 녹음 삭제</button></div>
@@ -107,6 +114,9 @@ async function openRecording(context={category,wordId:words.find(w=>w.category==
   }
   document.querySelector('#back-settings').onclick=openSettings;
   document.querySelector('#record-start').onclick=startRecording;document.querySelector('#record-stop').onclick=()=>finishRecording();
+  document.querySelector('#mic-permission').onclick=prepareMicrophone;
+  document.querySelector('#mic-settings').onclick=async()=>{document.querySelector('#mic-help').hidden=false;if(isAndroidApp())try{await openMicrophoneSettings();}catch(error){toast(error.message);}};
+  refreshMicrophone();
   document.querySelector('#preview-draft').onclick=()=>playBlob(draft).catch(()=>toast('녹음을 재생할 수 없어요. 다시 녹음해 주세요.'));
   document.querySelector('#save-record').onclick=saveDraft;
   const generation=recordingGeneration,key=recordingKey(word.id,context.lang,context.person);
@@ -123,8 +133,32 @@ function cleanupRecording(){
   if(recorder&&recorder.state!=='inactive'){recorder.onstop=null;recorder.stop();}
   stream?.getTracks().forEach(track=>track.stop());stream=null;recorder=null;draft=null;
 }
+async function refreshMicrophone(){
+  const el=document.querySelector('#mic-status'),generation=recordingGeneration;if(!el)return;
+  try{
+    const state=await microphoneStatus();if(generation!==recordingGeneration||!el.isConnected)return;
+    el.textContent=state==='granted'?'마이크가 허용되어 있어요. 녹음을 시작할 수 있어요.':state==='denied'?'마이크가 차단되어 있어요. 권한 설정에서 허용해 주세요.':state==='unsupported'?'마이크를 지원하는 앱 또는 HTTPS 브라우저에서 열어 주세요.':'아래 버튼을 누르고 권한 창에서 허용을 선택해 주세요.';
+    if(state==='denied')document.querySelector('#mic-help').hidden=false;
+  }catch{if(el.isConnected)el.textContent='아래 버튼으로 마이크 권한을 확인해 주세요.';}
+}
+async function prepareMicrophone(){
+  const generation=recordingGeneration,el=document.querySelector('#mic-status');
+  const controls=[...modal.querySelectorAll('button:not(#close-modal),select')].map(control=>[control,control.disabled]);
+  controls.forEach(([control])=>control.disabled=true);el.textContent='권한 창에서 마이크 사용을 허용해 주세요.';
+  try{
+    const state=await requestMicrophone();if(generation!==recordingGeneration||!el.isConnected)return;
+    if(state!=='granted')throw new DOMException('Denied','NotAllowedError');
+    el.textContent='마이크가 허용됐어요! 녹음 시작을 눌러 주세요.';
+  }catch(error){
+    if(generation!==recordingGeneration||!el.isConnected)return;
+    el.textContent=error.name==='NotAllowedError'?'마이크가 차단되어 있어요. 권한 설정에서 허용해 주세요.':'마이크를 사용할 수 없어요. 연결과 권한 설정을 확인해 주세요.';
+    document.querySelector('#mic-help').hidden=false;
+  }finally{if(generation===recordingGeneration)controls.forEach(([control,disabled])=>{if(control.isConnected)control.disabled=disabled;});}
+}
+window.addEventListener('focus',refreshMicrophone);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshMicrophone();});
 function recordBusy(busy){
-  modal.querySelectorAll('select, #back-settings, #play-saved, #delete-saved, #preview-draft, #save-record').forEach(el=>el.disabled=busy);
+  modal.querySelectorAll('select, #back-settings, #play-saved, #delete-saved, #preview-draft, #save-record, #mic-permission, #mic-settings').forEach(el=>el.disabled=busy);
   document.querySelector('#record-start').disabled=busy;document.querySelector('#record-stop').disabled=!busy;
 }
 async function startRecording(){
@@ -132,6 +166,8 @@ async function startRecording(){
   if(!navigator.mediaDevices?.getUserMedia || !globalThis.MediaRecorder){toast('마이크 녹음을 지원하는 Chrome 또는 안드로이드 앱에서 열어 주세요.');return;}
   recordBusy(true);document.querySelector('#record-status').textContent='마이크 사용을 허용해 주세요.';
   try{
+    if(isAndroidApp()&&await requestMicrophone()!=='granted')throw new DOMException('마이크 권한이 필요해요.','NotAllowedError');
+    if(generation!==recordingGeneration)return;
     const acquired=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true},video:false});
     if(generation!==recordingGeneration){acquired.getTracks().forEach(t=>t.stop());return;}
     stream=acquired;
@@ -152,6 +188,7 @@ async function startRecording(){
   }catch(error){
     if(generation!==recordingGeneration)return;
     cleanupRecording();await openRecording({...recordContext});
+    if(error.name==='NotAllowedError'){document.querySelector('#mic-help').hidden=false;document.querySelector('#mic-status').textContent='마이크가 차단되어 있어요. 아래 권한 설정에서 허용해 주세요.';}
     toast(error.name==='NotAllowedError'?'마이크 권한이 필요해요. 기기 설정에서 마이크를 허용해 주세요.':'마이크를 사용할 수 없어요. 다른 녹음 앱을 닫고 다시 시도해 주세요.');
   }
 }
@@ -176,7 +213,7 @@ async function importBackup(file){
   try{
     if(file.size>50*1024*1024)throw new Error('파일이 너무 커요. 최대 50MB까지 가져올 수 있어요.');
     const backup=JSON.parse(await file.text());
-    if(backup.app!=='malang-word-play'||backup.version!==1||!Array.isArray(backup.records)||backup.records.length>600)throw new Error('말랑말랑 녹음 파일이 아니에요.');
+    if(backup.app!=='malang-word-play'||backup.version!==1||!Array.isArray(backup.records)||backup.records.length>words.length*4)throw new Error('말랑말랑 녹음 파일이 아니에요.');
     const validKeys=new Set(words.flatMap(w=>['ko','en'].flatMap(l=>['mom','child'].map(p=>recordingKey(w.id,l,p)))));
     const seen=new Set();
     const records=backup.records.map(r=>{
@@ -193,4 +230,3 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelRoun
 window.addEventListener('pagehide',()=>{cleanupRecording();stopAudio();});
 render();
 if('serviceWorker' in navigator && !import.meta.env.DEV && !Capacitor.isNativePlatform()) navigator.serviceWorker.register('./sw.js').catch(()=>toast('오프라인 저장을 완료하지 못했어요. 인터넷 연결 상태에서 다시 열어 주세요.'));
-

@@ -18,3 +18,7 @@
  footer{height:28px;min-height:28px;padding:5px 4px;gap:8px;font-size:9px;flex-direction:row}.footer-note{font-size:9px}#now-playing{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.pagination{display:none}
 }
 @media(min-width:600px) and (min-height:600px) and (orientation:portrait){.cards{grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(6,minmax(0,1fr))}.word-card strong{font-size:clamp(11px,1.7vw,19px)}}
+/* Seven learning categories stay visible without horizontal swiping. */
+.tabs{grid-template-columns:repeat(7,minmax(0,1fr))}.tab{flex-direction:column;gap:3px;padding:6px 2px;font-size:11px;min-width:0}.tab small{display:none}.tab-icon{font-size:20px;line-height:1.05}.tab:has([class=tab-icon]){white-space:normal}.symbol.uppercase,.symbol.lowercase{font-family:'Noto Sans KR Variable',sans-serif;font-weight:800;color:#6a94bc}.mic-panel{background:#eef2e7;border-radius:15px;padding:14px;margin:14px 0}.mic-panel>strong{font-size:13px}.mic-panel #mic-status{font-size:12px;line-height:1.7;margin:8px 0}.mic-panel .button-row{margin-bottom:0}.mic-panel .button-row button{font-size:11px}.mic-panel [hidden]{display:none}.mic-panel .help{margin-bottom:0}
+@media(min-width:600px) and (min-height:600px){.tab{height:52px;min-height:52px;font-size:10px;gap:2px}.tab-icon{font-size:18px}}
+@media(max-width:560px){.tab{font-size:9px;min-height:62px}.tab-icon{font-size:17px}.mic-panel .button-row{flex-direction:column}}

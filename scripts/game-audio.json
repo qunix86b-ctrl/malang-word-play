@@ -1351,6 +1351,526 @@
   },
   {
     "language": "ko",
+    "text": "대문자 에이를 찾아보세요!",
+    "file": "find-uppercase-1"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase A!",
+    "file": "find-uppercase-1"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 비를 찾아보세요!",
+    "file": "find-uppercase-2"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase B!",
+    "file": "find-uppercase-2"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 씨를 찾아보세요!",
+    "file": "find-uppercase-3"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase C!",
+    "file": "find-uppercase-3"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 디를 찾아보세요!",
+    "file": "find-uppercase-4"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase D!",
+    "file": "find-uppercase-4"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 이를 찾아보세요!",
+    "file": "find-uppercase-5"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase E!",
+    "file": "find-uppercase-5"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 에프를 찾아보세요!",
+    "file": "find-uppercase-6"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase F!",
+    "file": "find-uppercase-6"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 지를 찾아보세요!",
+    "file": "find-uppercase-7"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase G!",
+    "file": "find-uppercase-7"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 에이치를 찾아보세요!",
+    "file": "find-uppercase-8"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase H!",
+    "file": "find-uppercase-8"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 아이를 찾아보세요!",
+    "file": "find-uppercase-9"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase I!",
+    "file": "find-uppercase-9"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 제이를 찾아보세요!",
+    "file": "find-uppercase-10"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase J!",
+    "file": "find-uppercase-10"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 케이를 찾아보세요!",
+    "file": "find-uppercase-11"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase K!",
+    "file": "find-uppercase-11"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 엘을 찾아보세요!",
+    "file": "find-uppercase-12"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase L!",
+    "file": "find-uppercase-12"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 엠을 찾아보세요!",
+    "file": "find-uppercase-13"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase M!",
+    "file": "find-uppercase-13"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 엔을 찾아보세요!",
+    "file": "find-uppercase-14"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase N!",
+    "file": "find-uppercase-14"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 오를 찾아보세요!",
+    "file": "find-uppercase-15"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase O!",
+    "file": "find-uppercase-15"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 피를 찾아보세요!",
+    "file": "find-uppercase-16"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase P!",
+    "file": "find-uppercase-16"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 큐를 찾아보세요!",
+    "file": "find-uppercase-17"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase Q!",
+    "file": "find-uppercase-17"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 알을 찾아보세요!",
+    "file": "find-uppercase-18"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase R!",
+    "file": "find-uppercase-18"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 에스를 찾아보세요!",
+    "file": "find-uppercase-19"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase S!",
+    "file": "find-uppercase-19"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 티를 찾아보세요!",
+    "file": "find-uppercase-20"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase T!",
+    "file": "find-uppercase-20"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 유를 찾아보세요!",
+    "file": "find-uppercase-21"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase U!",
+    "file": "find-uppercase-21"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 브이를 찾아보세요!",
+    "file": "find-uppercase-22"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase V!",
+    "file": "find-uppercase-22"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 더블유를 찾아보세요!",
+    "file": "find-uppercase-23"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase W!",
+    "file": "find-uppercase-23"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 엑스를 찾아보세요!",
+    "file": "find-uppercase-24"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase X!",
+    "file": "find-uppercase-24"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 와이를 찾아보세요!",
+    "file": "find-uppercase-25"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase Y!",
+    "file": "find-uppercase-25"
+  },
+  {
+    "language": "ko",
+    "text": "대문자 지를 찾아보세요!",
+    "file": "find-uppercase-26"
+  },
+  {
+    "language": "en",
+    "text": "Find uppercase Z!",
+    "file": "find-uppercase-26"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 에이를 찾아보세요!",
+    "file": "find-lowercase-1"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase A!",
+    "file": "find-lowercase-1"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 비를 찾아보세요!",
+    "file": "find-lowercase-2"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase B!",
+    "file": "find-lowercase-2"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 씨를 찾아보세요!",
+    "file": "find-lowercase-3"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase C!",
+    "file": "find-lowercase-3"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 디를 찾아보세요!",
+    "file": "find-lowercase-4"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase D!",
+    "file": "find-lowercase-4"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 이를 찾아보세요!",
+    "file": "find-lowercase-5"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase E!",
+    "file": "find-lowercase-5"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 에프를 찾아보세요!",
+    "file": "find-lowercase-6"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase F!",
+    "file": "find-lowercase-6"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 지를 찾아보세요!",
+    "file": "find-lowercase-7"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase G!",
+    "file": "find-lowercase-7"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 에이치를 찾아보세요!",
+    "file": "find-lowercase-8"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase H!",
+    "file": "find-lowercase-8"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 아이를 찾아보세요!",
+    "file": "find-lowercase-9"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase I!",
+    "file": "find-lowercase-9"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 제이를 찾아보세요!",
+    "file": "find-lowercase-10"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase J!",
+    "file": "find-lowercase-10"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 케이를 찾아보세요!",
+    "file": "find-lowercase-11"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase K!",
+    "file": "find-lowercase-11"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 엘을 찾아보세요!",
+    "file": "find-lowercase-12"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase L!",
+    "file": "find-lowercase-12"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 엠을 찾아보세요!",
+    "file": "find-lowercase-13"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase M!",
+    "file": "find-lowercase-13"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 엔을 찾아보세요!",
+    "file": "find-lowercase-14"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase N!",
+    "file": "find-lowercase-14"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 오를 찾아보세요!",
+    "file": "find-lowercase-15"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase O!",
+    "file": "find-lowercase-15"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 피를 찾아보세요!",
+    "file": "find-lowercase-16"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase P!",
+    "file": "find-lowercase-16"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 큐를 찾아보세요!",
+    "file": "find-lowercase-17"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase Q!",
+    "file": "find-lowercase-17"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 알을 찾아보세요!",
+    "file": "find-lowercase-18"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase R!",
+    "file": "find-lowercase-18"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 에스를 찾아보세요!",
+    "file": "find-lowercase-19"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase S!",
+    "file": "find-lowercase-19"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 티를 찾아보세요!",
+    "file": "find-lowercase-20"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase T!",
+    "file": "find-lowercase-20"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 유를 찾아보세요!",
+    "file": "find-lowercase-21"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase U!",
+    "file": "find-lowercase-21"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 브이를 찾아보세요!",
+    "file": "find-lowercase-22"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase V!",
+    "file": "find-lowercase-22"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 더블유를 찾아보세요!",
+    "file": "find-lowercase-23"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase W!",
+    "file": "find-lowercase-23"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 엑스를 찾아보세요!",
+    "file": "find-lowercase-24"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase X!",
+    "file": "find-lowercase-24"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 와이를 찾아보세요!",
+    "file": "find-lowercase-25"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase Y!",
+    "file": "find-lowercase-25"
+  },
+  {
+    "language": "ko",
+    "text": "소문자 지를 찾아보세요!",
+    "file": "find-lowercase-26"
+  },
+  {
+    "language": "en",
+    "text": "Find lowercase Z!",
+    "file": "find-lowercase-26"
+  },
+  {
+    "language": "ko",
     "file": "correct",
     "text": "맞았어요! 참 잘했어요!"
   },

@@ -2,9 +2,10 @@ import { Capacitor, registerPlugin } from '@capacitor/core';
 import { getRecording, recordingKey } from './storage.js';
 import { getSpeech } from './data.js';
 const NativeSpeech=registerPlugin('NativeSpeech');
-let sequence=0, audio, objectUrl;
+let sequence=0, audio, objectUrl, cancelPrompt;
 export function stopAudio() {
   sequence++;
+  cancelPrompt?.();cancelPrompt=null;
   if(audio) {audio.pause();audio.src='';audio=null;}
   if(objectUrl) {URL.revokeObjectURL(objectUrl);objectUrl=null;}
   globalThis.speechSynthesis?.cancel();
@@ -15,10 +16,24 @@ export async function playBlob(blob) {
 }
 export async function playPrompt(prompt,rate=0.9) {
   stopAudio();const current=sequence;
-  try{audio=new Audio(`./audio/${prompt.language}/${prompt.file}.mp3`);audio.playbackRate=rate;await audio.play();return;}catch{if(current!==sequence)return;}
-  if(Capacitor.isNativePlatform()){await NativeSpeech.speak({text:prompt.text,language:prompt.language==='ko'?'ko-KR':'en-US',rate});return;}
+  try{
+    const playing=audio=new Audio(`./audio/${prompt.language}/${prompt.file}.mp3`);playing.playbackRate=rate;
+    return await new Promise((resolve,reject)=>{
+      const clean=()=>{playing.onended=null;playing.onerror=null;if(cancelPrompt===cancel)cancelPrompt=null;};
+      const cancel=()=>{clean();resolve(false);};cancelPrompt=cancel;
+      const fail=error=>{clean();reject(error);};
+      playing.onended=()=>{clean();resolve(true);};playing.onerror=()=>fail(new Error('Audio playback failed'));
+      playing.play().catch(fail);
+    });
+  }catch{if(current!==sequence)return false;}
+  if(Capacitor.isNativePlatform()){const result=await NativeSpeech.speak({text:prompt.text,language:prompt.language==='ko'?'ko-KR':'en-US',rate,waitForEnd:true});return current===sequence&&result.completed===true;}
   if(!globalThis.speechSynthesis)throw new Error('음성을 재생할 수 없어요.');
-  const utterance=new SpeechSynthesisUtterance(prompt.text);utterance.lang=prompt.language==='ko'?'ko-KR':'en-US';utterance.rate=rate;speechSynthesis.speak(utterance);
+  return await new Promise((resolve,reject)=>{
+    const utterance=new SpeechSynthesisUtterance(prompt.text);utterance.lang=prompt.language==='ko'?'ko-KR':'en-US';utterance.rate=rate;
+    const clean=()=>{utterance.onend=null;utterance.onerror=null;if(cancelPrompt===cancel)cancelPrompt=null;};
+    const cancel=()=>{clean();resolve(false);};cancelPrompt=cancel;
+    utterance.onend=()=>{clean();resolve(true);};utterance.onerror=()=>{clean();reject(new Error('Speech playback failed'));};speechSynthesis.speak(utterance);
+  });
 }
 export async function speak(word,settings,onSource) {
   stopAudio(); const current=sequence;

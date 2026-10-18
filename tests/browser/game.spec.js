@@ -23,7 +23,7 @@ test('find game handles wrong answer, correct answer, replay, mode and category 
   await page.locator(`[data-word="${wrong.id}"]`).click();await expect(page.locator('#game-feedback')).toContainText('다시');await expect(page.locator('#game-question')).toHaveText(prompt);
   await page.locator('#repeat-question').click();await expect(page.locator('#game-question')).toHaveText(prompt);
   await page.locator(`[data-word="${target.id}"]`).click();await expect(page.locator('#game-feedback')).toContainText('맞았어요');await expect(page.locator('.found')).toHaveCount(1);
-  await expect(page.locator('#game-question')).not.toHaveText(prompt,{timeout:5000});
+  await expect(page.locator('#game-question')).not.toHaveText(prompt,{timeout:12000});
   await page.locator('[data-lang="en"]').click();await expect(page.locator('#game-question')).toContainText('Find');
   await page.locator('[data-category="food"]').click();const food=await page.locator('#game-question').textContent();expect(words.some(w=>w.category==='food'&&question(w,'en').text===food)).toBeTruthy();
   await page.locator('#listen-mode').click();await expect(page.locator('#game-question')).toHaveCount(0);await page.locator('.word-card').first().click();await expect(page.locator('#now-playing')).toContainText('Apple');
