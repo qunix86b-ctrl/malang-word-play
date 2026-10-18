@@ -4,7 +4,8 @@ import './style.css';
 import { Capacitor, registerPlugin } from '@capacitor/core';
 import { categories, words } from './data.js';
 import { sticker } from './stickers.js';
-import { speak, stopAudio, playBlob } from './audio.js';
+import { speak, stopAudio, playBlob, playPrompt } from './audio.js';
+import { question, feedback, nextTarget } from './game.js';
 import { allRecordings, getRecording, saveRecordings, deleteRecording, recordingKey } from './storage.js';
 
 const defaults={lang:'ko',voice:'mom',rate:0.9,labels:true};
@@ -15,29 +16,50 @@ if(!['ko','en'].includes(settings.lang))settings.lang='ko';
 if(!['mom','child','ai'].includes(settings.voice))settings.voice='mom';
 if(![0.8,0.9,1].includes(settings.rate))settings.rate=0.9;
 let category='animals',page=0, selected=null, installPrompt, highlightTimer;
+const tabletQuery=matchMedia('(min-width: 600px) and (min-height: 600px)');
+let gameMode=false,target=null,solved=false,nextTimer,gameEpoch=0;
+const seen=new Set();
+function visibleWords(){const items=words.filter(w=>w.category===category);return tabletQuery.matches?items:items.slice(page*6,page*6+6);}
+function cancelRound(){clearTimeout(nextTimer);gameEpoch++;stopAudio();}
+function resetRound(){cancelRound();target=null;solved=false;seen.clear();}
+async function sayPrompt(prompt){try{await playPrompt(prompt,settings.rate);}catch{toast('소리를 재생하지 못했어요. 다시 듣기를 눌러 주세요.');}}
+function newRound(){cancelRound();target=nextTarget(visibleWords(),seen,target?.id);solved=false;render();sayPrompt(question(target,settings.lang));}
+function chooseWord(word,button){
+  if(!gameMode){playWord(word,button);return;}
+  if(solved||!target)return;
+  const correct=word.id===target.id;
+  document.querySelector('#game-feedback').textContent=feedback(correct,settings.lang).text;
+  sayPrompt(feedback(correct,settings.lang));
+  if(correct){solved=true;button.classList.add('found');const epoch=gameEpoch;nextTimer=setTimeout(()=>{if(epoch===gameEpoch&&gameMode&&!modal.open&&!document.hidden)newRound();},2800);}
+}
+tabletQuery.addEventListener('change',()=>{resetRound();page=0;if(gameMode)newRound();else render();});
 let recorder, stream, recordingTimer, draft, recordContext, recordingGeneration=0;
 const app=document.querySelector('#app'),modal=document.querySelector('#modal');
 const icons={sound:'<svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM17 8q5 4 0 8M19 4q9 8 0 16"/></svg>',gear:'<svg viewBox="0 0 24 24"><path d="m9 3-1 3-3 1-2 4 2 2 1 4 4 2 2-1 4 1 3-4-1-3 2-3-3-4-3 1-3-3z"/><circle cx="12" cy="11" r="3"/></svg>',mic:'<svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="13" rx="4"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/></svg>'};
 function toast(message){const el=document.querySelector('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),4000);}
 function persist(){try{localStorage.setItem('malang-settings',JSON.stringify(settings));}catch{toast('설정 저장 공간이 부족해요.');}}
 function render(){
-  const cat=categories.find(c=>c.id===category),items=words.filter(w=>w.category===category),shown=items.slice(page*6,page*6+6);
+  const cat=categories.find(c=>c.id===category),shown=visibleWords();
   document.documentElement.lang=settings.lang;
   app.innerHTML=`<div class="shell"><header><a class="brand" href="./" aria-label="말랑말랑 처음으로"><img src="./icon.svg" alt=""/><span>말랑말랑<small>우리 아이 첫 단어 친구</small></span></a><div class="top-actions"><div class="language" aria-label="언어 선택"><button data-lang="ko" class="${settings.lang==='ko'?'active':''}" aria-pressed="${settings.lang==='ko'}">한국어</button><button data-lang="en" class="${settings.lang==='en'?'active':''}" aria-pressed="${settings.lang==='en'}">English</button></div><button class="settings-button" id="settings" aria-label="보호자 설정">${icons.gear}<span>보호자</span></button></div></header>
   <main><section class="intro"><div><p class="eyebrow">작은 손으로, 넓은 세상을</p><h1>톡! 누르면 <span>말해 줘요</span><i>✦</i></h1><p>${cat.subtitle}</p></div><div class="voice-pill">${icons.sound}<span>${settings.voice==='ai'?'AI 목소리':settings.voice==='mom'?'가족 목소리 우선':'아이 목소리 우선'}<small>녹음이 없으면 AI 목소리로</small></span><b class="green-dot"></b></div></section>
   <nav class="tabs" aria-label="단어 종류">${categories.map(c=>`<button data-category="${c.id}" class="tab ${category===c.id?'active':''}" aria-pressed="${category===c.id}" style="--tab-color:${c.color}"><span class="tab-icon">${c.icon}</span>${settings.lang==='ko'?c.label:c.en}<small>30</small></button>`).join('')}</nav>
-  <section class="play-area" aria-label="${cat.label} 스티커"><div class="section-heading"><h2>${cat.icon} ${settings.lang==='ko'?cat.label:cat.en} <span>친구들</span></h2><p>그림을 눌러 소리를 들어 보세요 ${icons.sound}</p></div>
-  <div class="cards">${shown.map((w,i)=>`<button class="word-card color-${i}" data-word="${w.id}" aria-label="${w[settings.lang]} 듣기">${sticker(w)}${settings.labels?`<strong>${w.category==='hangul'?w.ko:w[settings.lang]}</strong><span class="translation">${w.category==='hangul'?(settings.lang==='en'?w.en:'소리 내어 읽어요'):w[settings.lang==='ko'?'en':'ko']}</span>`:''}<span class="sound-badge">${icons.sound}</span></button>`).join('')}</div>
-  <div class="pagination"><button class="page-arrow" id="previous" aria-label="이전 단어" ${page===0?'disabled':''}>←</button><div class="page-dots" aria-label="페이지">${Array.from({length:5},(_,i)=>`<button data-page="${i}" aria-label="${i+1}페이지" aria-current="${page===i?'page':'false'}" class="${page===i?'current':''}"></button>`).join('')}</div><span>${page+1} / 5</span><button class="page-arrow" id="next" aria-label="다음 단어" ${page===4?'disabled':''}>→</button></div></section>
+  <section class="play-area" aria-label="${cat.label} 스티커"><div class="section-heading"><h2>${cat.icon} ${settings.lang==='ko'?cat.label:cat.en} <span>친구들</span></h2><div class="mode-switch"><button id="listen-mode" aria-pressed="${!gameMode}">톡톡 듣기</button><button id="find-mode" aria-pressed="${gameMode}">🔎 찾기 놀이</button></div></div>
+  ${gameMode?`<div class="game-bar"><div><strong id="game-question">${target?question(target,settings.lang).text:''}</strong><span id="game-feedback" role="status">${settings.lang==='ko'?'어디에 있을까요?':'Where is it?'}</span></div><button id="repeat-question" aria-label="문제 다시 듣기">${icons.sound}<span>다시 듣기</span></button></div>`:''}
+  <div class="cards">${shown.map((w,i)=>`<button class="word-card color-${i%6}" data-word="${w.id}" aria-label="${w[settings.lang]} ${gameMode?'선택':'듣기'}">${sticker(w)}${settings.labels?`<strong>${w.category==='hangul'?w.ko:w[settings.lang]}</strong><span class="translation">${w.category==='hangul'?(settings.lang==='en'?w.en:'소리 내어 읽어요'):w[settings.lang==='ko'?'en':'ko']}</span>`:''}<span class="sound-badge">${icons.sound}</span></button>`).join('')}</div>
+  ${tabletQuery.matches?'':`<div class="pagination"><button class="page-arrow" id="previous" aria-label="이전 단어" ${page===0?'disabled':''}>←</button><div class="page-dots" aria-label="페이지">${Array.from({length:5},(_,i)=>`<button data-page="${i}" aria-label="${i+1}페이지" aria-current="${page===i?'page':'false'}" class="${page===i?'current':''}"></button>`).join('')}</div><span>${page+1} / 5</span><button class="page-arrow" id="next" aria-label="다음 단어" ${page===4?'disabled':''}>→</button></div>`}</section>
   <footer><span class="footer-note">♡ 함께 듣고, 함께 따라 해요</span><span id="now-playing" aria-live="polite">${category==='hangul'?'한글은 영어 모드에서도 한국어로 읽어요.':'하나씩 천천히, 우리 아이의 속도로'}</span></footer></main></div>`;
-  app.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{stopAudio();settings.lang=b.dataset.lang;persist();render();});
-  app.querySelectorAll('[data-category]').forEach(b=>b.onclick=()=>{stopAudio();category=b.dataset.category;page=0;render();});
-  app.querySelectorAll('[data-word]').forEach(b=>b.onclick=()=>playWord(words.find(w=>w.id===b.dataset.word),b));
+  app.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{resetRound();settings.lang=b.dataset.lang;persist();if(gameMode)newRound();else render();});
+  app.querySelectorAll('[data-category]').forEach(b=>b.onclick=()=>{resetRound();category=b.dataset.category;page=0;if(gameMode)newRound();else render();});
+  app.querySelectorAll('[data-word]').forEach(b=>b.onclick=()=>chooseWord(words.find(w=>w.id===b.dataset.word),b));
   app.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>changePage(Number(b.dataset.page)));
-  document.querySelector('#previous').onclick=()=>changePage(page-1);document.querySelector('#next').onclick=()=>changePage(page+1);
+  if(!tabletQuery.matches){document.querySelector('#previous').onclick=()=>changePage(page-1);document.querySelector('#next').onclick=()=>changePage(page+1);}
+  document.querySelector('#listen-mode').onclick=()=>{resetRound();gameMode=false;render();};
+  document.querySelector('#find-mode').onclick=()=>{resetRound();gameMode=true;newRound();};
+  const repeat=document.querySelector('#repeat-question');if(repeat)repeat.onclick=()=>{if(solved)newRound();else sayPrompt(question(target,settings.lang));};
   document.querySelector('#settings').onclick=openGate;
 }
-function changePage(next){stopAudio();page=Math.max(0,Math.min(4,next));render();}
+function changePage(next){resetRound();page=Math.max(0,Math.min(4,next));if(gameMode)newRound();else render();}
 async function playWord(word,button){
   selected=word.id;document.querySelectorAll('.word-card').forEach(c=>c.classList.remove('speaking'));button.classList.add('speaking');
   clearTimeout(highlightTimer);highlightTimer=setTimeout(()=>button.classList.remove('speaking'),1800);
@@ -49,7 +71,7 @@ function closeModal(){cleanupRecording();stopAudio();modal.close();render();}
 function wireClose(){document.querySelector('#close-modal').onclick=closeModal;}
 modal.addEventListener('cancel',event=>{event.preventDefault();closeModal();});
 function openGate(){
-  stopAudio();const a=3+Math.floor(Math.random()*6),b=2+Math.floor(Math.random()*7);
+  cancelRound();gameMode=false;const a=3+Math.floor(Math.random()*6),b=2+Math.floor(Math.random()*7);
   showModal(`${modalHeader('보호자와 함께 열어요','설정과 녹음은 어른과 함께해요.')}<form id="gate"><label class="gate-label" for="answer">${a} + ${b} = ?</label><input id="answer" type="number" inputmode="numeric" autocomplete="off" placeholder="정답" required/><p id="gate-error" role="alert"></p><button class="primary" type="submit">설정 열기</button></form>`);wireClose();
   document.querySelector('#gate').onsubmit=e=>{e.preventDefault();if(Number(document.querySelector('#answer').value)===a+b)openSettings();else document.querySelector('#gate-error').textContent='다시 계산해 주세요.';};
 }
@@ -60,7 +82,7 @@ function openSettings(){
   <div class="setting-row"><label for="rate">AI 음성 속도</label><select id="rate"><option value="0.8">천천히</option><option value="0.9">조금 천천히</option><option value="1">보통</option></select></div>
   <div class="setting-row"><label for="labels">그림 아래 단어 보기</label><input id="labels" type="checkbox" ${settings.labels?'checked':''}/></div>
   <div class="setting-section"><h3>녹음 보관하기</h3><p class="help">녹음은 이 기기에만 저장돼요. 앱 삭제나 브라우저 데이터 삭제 전에 파일로 보관해 주세요. 다른 기기로 자동 전송되지 않아요.</p><div class="button-row"><button class="secondary" id="export">녹음 내보내기</button><button class="secondary" id="import">녹음 가져오기</button></div><input hidden id="backup-file" type="file" accept="application/json,.json"/></div>
-  <div class="setting-section install-section"><h3>앱으로 사용하기</h3><p class="help">${Capacitor.isNativePlatform()?'안드로이드 앱으로 실행 중이에요.':'갤럭시 Chrome 메뉴에서 “홈 화면에 추가” 또는 “앱 설치”를 선택하세요. 처음에는 인터넷에 연결해 주세요.'}</p>${installPrompt?'<button class="secondary" id="install">앱 설치하기</button>':''}<p class="privacy-note">로그인·광고·추적 없이 이용해요.<br/>사진 스티커와 기본 음성은 AI로 만들어졌어요. v1.0.0</p></div>`);wireClose();
+  <div class="setting-section install-section"><h3>앱으로 사용하기</h3><p class="help">${Capacitor.isNativePlatform()?'안드로이드 앱으로 실행 중이에요.':'갤럭시 Chrome 메뉴에서 “홈 화면에 추가” 또는 “앱 설치”를 선택하세요. 처음에는 인터넷에 연결해 주세요.'}</p>${installPrompt?'<button class="secondary" id="install">앱 설치하기</button>':''}<p class="privacy-note">로그인·광고·추적 없이 이용해요.<br/>사진 스티커와 기본 음성은 AI로 만들어졌어요. v1.1.0</p></div>`);wireClose();
   document.querySelectorAll('[data-voice]').forEach(b=>b.onclick=()=>{settings.voice=b.dataset.voice;persist();openSettings();});
   const rate=document.querySelector('#rate');rate.value=settings.rate;rate.onchange=()=>{settings.rate=Number(rate.value);persist();};
   document.querySelector('#labels').onchange=e=>{settings.labels=e.target.checked;persist();};
@@ -167,7 +189,8 @@ async function importBackup(file){
   }catch(error){toast(error instanceof SyntaxError?'읽을 수 없는 파일이에요.':error.message || '녹음을 가져오지 못했어요.');}
 }
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;});
-document.addEventListener('visibilitychange',()=>{if(document.hidden){stopAudio();if(recorder?.state==='recording')finishRecording();}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelRound();if(recorder?.state==='recording')finishRecording();}else if(gameMode&&!modal.open){newRound();}});
 window.addEventListener('pagehide',()=>{cleanupRecording();stopAudio();});
 render();
 if('serviceWorker' in navigator && !import.meta.env.DEV && !Capacitor.isNativePlatform()) navigator.serviceWorker.register('./sw.js').catch(()=>toast('오프라인 저장을 완료하지 못했어요. 인터넷 연결 상태에서 다시 열어 주세요.'));
+

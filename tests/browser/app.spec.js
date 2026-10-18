@@ -1,9 +1,10 @@
 import {test,expect} from '@playwright/test';
 async function settings(page){await page.getByRole('button',{name:'보호자 설정'}).click();const text=await page.locator('.gate-label').textContent();const [a,b]=text.match(/\d+/g).map(Number);await page.locator('#answer').fill(String(a+b));await page.getByRole('button',{name:'설정 열기'}).click();}
-test('tablet: all categories, pagination, bilingual playback and no overflow',async({page})=>{
+test('phone: all categories, pagination, bilingual playback and no overflow',async({page})=>{
+  await page.setViewportSize({width:540,height:900});
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto('/');await expect(page.locator('.word-card')).toHaveCount(6);
-  await page.screenshot({path:'output/tablet.png',fullPage:true});
+  await page.screenshot({path:'output/pagination.png',fullPage:true});
   for(const category of ['animals','food','things','numbers','hangul']){
     await page.locator(`[data-category="${category}"]`).click();
     for(let i=0;i<5;i++){
@@ -47,7 +48,7 @@ test('closing while recording releases microphone',async({page})=>{
 test('offline reload keeps all core assets and speech',async({page,context})=>{
   await page.goto('/');await page.evaluate(async()=>{await navigator.serviceWorker.ready;});
   await page.reload();await context.setOffline(true);await page.reload();
-  await expect(page.locator('.word-card')).toHaveCount(6);await page.locator('.word-card').first().click();
+  await expect(page.locator('.word-card')).toHaveCount(30);await page.locator('.word-card').first().click();
   await expect(page.locator('#now-playing')).toContainText('AI 목소리');
   await context.setOffline(false);
 });
@@ -67,6 +68,7 @@ test('microphone denial can be retried without leaving disabled controls',async(
   await expect(page.locator('#toast')).toContainText('마이크 권한');await expect(page.locator('#record-start')).toBeEnabled();
 });
 test('visual contact sheets for every photographic sticker',async({page})=>{
+  await page.setViewportSize({width:540,height:900});
   await page.goto('/');
   for(const category of ['animals','food','things']){
     await page.locator(`[data-category="${category}"]`).click();const cards=[];
@@ -75,3 +77,4 @@ test('visual contact sheets for every photographic sticker',async({page})=>{
     await page.locator('#gallery').screenshot({path:`output/gallery-${category}.png`});await page.locator('#gallery').evaluate(el=>el.remove());
   }
 });
+

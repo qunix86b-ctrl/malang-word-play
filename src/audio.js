@@ -13,6 +13,13 @@ export function stopAudio() {
 export async function playBlob(blob) {
   stopAudio();objectUrl=URL.createObjectURL(blob);audio=new Audio(objectUrl);await audio.play();
 }
+export async function playPrompt(prompt,rate=0.9) {
+  stopAudio();const current=sequence;
+  try{audio=new Audio(`./audio/${prompt.language}/${prompt.file}.mp3`);audio.playbackRate=rate;await audio.play();return;}catch{if(current!==sequence)return;}
+  if(Capacitor.isNativePlatform()){await NativeSpeech.speak({text:prompt.text,language:prompt.language==='ko'?'ko-KR':'en-US',rate});return;}
+  if(!globalThis.speechSynthesis)throw new Error('음성을 재생할 수 없어요.');
+  const utterance=new SpeechSynthesisUtterance(prompt.text);utterance.lang=prompt.language==='ko'?'ko-KR':'en-US';utterance.rate=rate;speechSynthesis.speak(utterance);
+}
 export async function speak(word,settings,onSource) {
   stopAudio(); const current=sequence;
   const {language,text}=getSpeech(word,settings.lang);

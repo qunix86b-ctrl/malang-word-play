@@ -13,6 +13,9 @@ VOICES = {'ko': 'ko-KR-SunHiNeural', 'en': 'en-US-JennyNeural'}
 async def main():
     words = json.loads((ROOT / 'scripts/words.json').read_text(encoding='utf-8'))
     tasks = [(w, lang) for w in words for lang in ('ko', 'en') if not (w['category'] == 'hangul' and lang == 'en')]
+    game_path = ROOT / 'scripts/game-audio.json'
+    if game_path.exists():
+        tasks += [({'id': p['file'], p['language']: p['text']}, p['language']) for p in json.loads(game_path.read_text(encoding='utf-8'))]
     semaphore = asyncio.Semaphore(4)
     completed = 0
     failures = []

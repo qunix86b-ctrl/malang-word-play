@@ -1,0 +1,1372 @@
+[
+  {
+    "text": "강아지를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-1"
+  },
+  {
+    "text": "Find dog!",
+    "language": "en",
+    "file": "find-animals-1"
+  },
+  {
+    "text": "고양이를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-2"
+  },
+  {
+    "text": "Find cat!",
+    "language": "en",
+    "file": "find-animals-2"
+  },
+  {
+    "text": "토끼를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-3"
+  },
+  {
+    "text": "Find rabbit!",
+    "language": "en",
+    "file": "find-animals-3"
+  },
+  {
+    "text": "곰을 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-4"
+  },
+  {
+    "text": "Find bear!",
+    "language": "en",
+    "file": "find-animals-4"
+  },
+  {
+    "text": "사자를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-5"
+  },
+  {
+    "text": "Find lion!",
+    "language": "en",
+    "file": "find-animals-5"
+  },
+  {
+    "text": "호랑이를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-6"
+  },
+  {
+    "text": "Find tiger!",
+    "language": "en",
+    "file": "find-animals-6"
+  },
+  {
+    "text": "코끼리를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-7"
+  },
+  {
+    "text": "Find elephant!",
+    "language": "en",
+    "file": "find-animals-7"
+  },
+  {
+    "text": "기린을 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-8"
+  },
+  {
+    "text": "Find giraffe!",
+    "language": "en",
+    "file": "find-animals-8"
+  },
+  {
+    "text": "얼룩말을 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-9"
+  },
+  {
+    "text": "Find zebra!",
+    "language": "en",
+    "file": "find-animals-9"
+  },
+  {
+    "text": "원숭이를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-10"
+  },
+  {
+    "text": "Find monkey!",
+    "language": "en",
+    "file": "find-animals-10"
+  },
+  {
+    "text": "판다를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-11"
+  },
+  {
+    "text": "Find panda!",
+    "language": "en",
+    "file": "find-animals-11"
+  },
+  {
+    "text": "코알라를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-12"
+  },
+  {
+    "text": "Find koala!",
+    "language": "en",
+    "file": "find-animals-12"
+  },
+  {
+    "text": "소를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-13"
+  },
+  {
+    "text": "Find cow!",
+    "language": "en",
+    "file": "find-animals-13"
+  },
+  {
+    "text": "돼지를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-14"
+  },
+  {
+    "text": "Find pig!",
+    "language": "en",
+    "file": "find-animals-14"
+  },
+  {
+    "text": "말을 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-15"
+  },
+  {
+    "text": "Find horse!",
+    "language": "en",
+    "file": "find-animals-15"
+  },
+  {
+    "text": "양을 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-16"
+  },
+  {
+    "text": "Find sheep!",
+    "language": "en",
+    "file": "find-animals-16"
+  },
+  {
+    "text": "염소를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-17"
+  },
+  {
+    "text": "Find goat!",
+    "language": "en",
+    "file": "find-animals-17"
+  },
+  {
+    "text": "사슴을 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-18"
+  },
+  {
+    "text": "Find deer!",
+    "language": "en",
+    "file": "find-animals-18"
+  },
+  {
+    "text": "다람쥐를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-19"
+  },
+  {
+    "text": "Find squirrel!",
+    "language": "en",
+    "file": "find-animals-19"
+  },
+  {
+    "text": "여우를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-20"
+  },
+  {
+    "text": "Find fox!",
+    "language": "en",
+    "file": "find-animals-20"
+  },
+  {
+    "text": "늑대를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-21"
+  },
+  {
+    "text": "Find wolf!",
+    "language": "en",
+    "file": "find-animals-21"
+  },
+  {
+    "text": "하마를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-22"
+  },
+  {
+    "text": "Find hippopotamus!",
+    "language": "en",
+    "file": "find-animals-22"
+  },
+  {
+    "text": "코뿔소를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-23"
+  },
+  {
+    "text": "Find rhinoceros!",
+    "language": "en",
+    "file": "find-animals-23"
+  },
+  {
+    "text": "캥거루를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-24"
+  },
+  {
+    "text": "Find kangaroo!",
+    "language": "en",
+    "file": "find-animals-24"
+  },
+  {
+    "text": "펭귄을 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-25"
+  },
+  {
+    "text": "Find penguin!",
+    "language": "en",
+    "file": "find-animals-25"
+  },
+  {
+    "text": "오리를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-26"
+  },
+  {
+    "text": "Find duck!",
+    "language": "en",
+    "file": "find-animals-26"
+  },
+  {
+    "text": "닭을 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-27"
+  },
+  {
+    "text": "Find chicken!",
+    "language": "en",
+    "file": "find-animals-27"
+  },
+  {
+    "text": "부엉이를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-28"
+  },
+  {
+    "text": "Find owl!",
+    "language": "en",
+    "file": "find-animals-28"
+  },
+  {
+    "text": "거북이를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-29"
+  },
+  {
+    "text": "Find turtle!",
+    "language": "en",
+    "file": "find-animals-29"
+  },
+  {
+    "text": "돌고래를 찾아보세요!",
+    "language": "ko",
+    "file": "find-animals-30"
+  },
+  {
+    "text": "Find dolphin!",
+    "language": "en",
+    "file": "find-animals-30"
+  },
+  {
+    "text": "사과를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-1"
+  },
+  {
+    "text": "Find apple!",
+    "language": "en",
+    "file": "find-food-1"
+  },
+  {
+    "text": "바나나를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-2"
+  },
+  {
+    "text": "Find banana!",
+    "language": "en",
+    "file": "find-food-2"
+  },
+  {
+    "text": "딸기를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-3"
+  },
+  {
+    "text": "Find strawberry!",
+    "language": "en",
+    "file": "find-food-3"
+  },
+  {
+    "text": "오렌지를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-4"
+  },
+  {
+    "text": "Find orange!",
+    "language": "en",
+    "file": "find-food-4"
+  },
+  {
+    "text": "포도를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-5"
+  },
+  {
+    "text": "Find grapes!",
+    "language": "en",
+    "file": "find-food-5"
+  },
+  {
+    "text": "수박을 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-6"
+  },
+  {
+    "text": "Find watermelon!",
+    "language": "en",
+    "file": "find-food-6"
+  },
+  {
+    "text": "복숭아를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-7"
+  },
+  {
+    "text": "Find peach!",
+    "language": "en",
+    "file": "find-food-7"
+  },
+  {
+    "text": "배를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-8"
+  },
+  {
+    "text": "Find pear!",
+    "language": "en",
+    "file": "find-food-8"
+  },
+  {
+    "text": "키위를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-9"
+  },
+  {
+    "text": "Find kiwi!",
+    "language": "en",
+    "file": "find-food-9"
+  },
+  {
+    "text": "파인애플을 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-10"
+  },
+  {
+    "text": "Find pineapple!",
+    "language": "en",
+    "file": "find-food-10"
+  },
+  {
+    "text": "망고를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-11"
+  },
+  {
+    "text": "Find mango!",
+    "language": "en",
+    "file": "find-food-11"
+  },
+  {
+    "text": "블루베리를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-12"
+  },
+  {
+    "text": "Find blueberries!",
+    "language": "en",
+    "file": "find-food-12"
+  },
+  {
+    "text": "체리를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-13"
+  },
+  {
+    "text": "Find cherries!",
+    "language": "en",
+    "file": "find-food-13"
+  },
+  {
+    "text": "레몬을 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-14"
+  },
+  {
+    "text": "Find lemon!",
+    "language": "en",
+    "file": "find-food-14"
+  },
+  {
+    "text": "감을 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-15"
+  },
+  {
+    "text": "Find persimmon!",
+    "language": "en",
+    "file": "find-food-15"
+  },
+  {
+    "text": "멜론을 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-16"
+  },
+  {
+    "text": "Find melon!",
+    "language": "en",
+    "file": "find-food-16"
+  },
+  {
+    "text": "자두를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-17"
+  },
+  {
+    "text": "Find plum!",
+    "language": "en",
+    "file": "find-food-17"
+  },
+  {
+    "text": "아보카도를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-18"
+  },
+  {
+    "text": "Find avocado!",
+    "language": "en",
+    "file": "find-food-18"
+  },
+  {
+    "text": "당근을 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-19"
+  },
+  {
+    "text": "Find carrot!",
+    "language": "en",
+    "file": "find-food-19"
+  },
+  {
+    "text": "브로콜리를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-20"
+  },
+  {
+    "text": "Find broccoli!",
+    "language": "en",
+    "file": "find-food-20"
+  },
+  {
+    "text": "오이를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-21"
+  },
+  {
+    "text": "Find cucumber!",
+    "language": "en",
+    "file": "find-food-21"
+  },
+  {
+    "text": "토마토를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-22"
+  },
+  {
+    "text": "Find tomato!",
+    "language": "en",
+    "file": "find-food-22"
+  },
+  {
+    "text": "감자를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-23"
+  },
+  {
+    "text": "Find potato!",
+    "language": "en",
+    "file": "find-food-23"
+  },
+  {
+    "text": "고구마를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-24"
+  },
+  {
+    "text": "Find sweet potato!",
+    "language": "en",
+    "file": "find-food-24"
+  },
+  {
+    "text": "양파를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-25"
+  },
+  {
+    "text": "Find onion!",
+    "language": "en",
+    "file": "find-food-25"
+  },
+  {
+    "text": "옥수수를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-26"
+  },
+  {
+    "text": "Find corn!",
+    "language": "en",
+    "file": "find-food-26"
+  },
+  {
+    "text": "호박을 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-27"
+  },
+  {
+    "text": "Find pumpkin!",
+    "language": "en",
+    "file": "find-food-27"
+  },
+  {
+    "text": "양배추를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-28"
+  },
+  {
+    "text": "Find cabbage!",
+    "language": "en",
+    "file": "find-food-28"
+  },
+  {
+    "text": "시금치를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-29"
+  },
+  {
+    "text": "Find spinach!",
+    "language": "en",
+    "file": "find-food-29"
+  },
+  {
+    "text": "파프리카를 찾아보세요!",
+    "language": "ko",
+    "file": "find-food-30"
+  },
+  {
+    "text": "Find bell pepper!",
+    "language": "en",
+    "file": "find-food-30"
+  },
+  {
+    "text": "공을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-1"
+  },
+  {
+    "text": "Find ball!",
+    "language": "en",
+    "file": "find-things-1"
+  },
+  {
+    "text": "자동차를 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-2"
+  },
+  {
+    "text": "Find car!",
+    "language": "en",
+    "file": "find-things-2"
+  },
+  {
+    "text": "버스를 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-3"
+  },
+  {
+    "text": "Find bus!",
+    "language": "en",
+    "file": "find-things-3"
+  },
+  {
+    "text": "기차를 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-4"
+  },
+  {
+    "text": "Find train!",
+    "language": "en",
+    "file": "find-things-4"
+  },
+  {
+    "text": "비행기를 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-5"
+  },
+  {
+    "text": "Find airplane!",
+    "language": "en",
+    "file": "find-things-5"
+  },
+  {
+    "text": "배를 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-6"
+  },
+  {
+    "text": "Find boat!",
+    "language": "en",
+    "file": "find-things-6"
+  },
+  {
+    "text": "책을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-7"
+  },
+  {
+    "text": "Find book!",
+    "language": "en",
+    "file": "find-things-7"
+  },
+  {
+    "text": "연필을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-8"
+  },
+  {
+    "text": "Find pencil!",
+    "language": "en",
+    "file": "find-things-8"
+  },
+  {
+    "text": "크레용을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-9"
+  },
+  {
+    "text": "Find crayons!",
+    "language": "en",
+    "file": "find-things-9"
+  },
+  {
+    "text": "가방을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-10"
+  },
+  {
+    "text": "Find backpack!",
+    "language": "en",
+    "file": "find-things-10"
+  },
+  {
+    "text": "신발을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-11"
+  },
+  {
+    "text": "Find shoes!",
+    "language": "en",
+    "file": "find-things-11"
+  },
+  {
+    "text": "모자를 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-12"
+  },
+  {
+    "text": "Find hat!",
+    "language": "en",
+    "file": "find-things-12"
+  },
+  {
+    "text": "양말을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-13"
+  },
+  {
+    "text": "Find socks!",
+    "language": "en",
+    "file": "find-things-13"
+  },
+  {
+    "text": "티셔츠를 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-14"
+  },
+  {
+    "text": "Find t-shirt!",
+    "language": "en",
+    "file": "find-things-14"
+  },
+  {
+    "text": "우산을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-15"
+  },
+  {
+    "text": "Find umbrella!",
+    "language": "en",
+    "file": "find-things-15"
+  },
+  {
+    "text": "시계를 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-16"
+  },
+  {
+    "text": "Find clock!",
+    "language": "en",
+    "file": "find-things-16"
+  },
+  {
+    "text": "전화기를 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-17"
+  },
+  {
+    "text": "Find telephone!",
+    "language": "en",
+    "file": "find-things-17"
+  },
+  {
+    "text": "카메라를 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-18"
+  },
+  {
+    "text": "Find camera!",
+    "language": "en",
+    "file": "find-things-18"
+  },
+  {
+    "text": "컵을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-19"
+  },
+  {
+    "text": "Find cup!",
+    "language": "en",
+    "file": "find-things-19"
+  },
+  {
+    "text": "숟가락을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-20"
+  },
+  {
+    "text": "Find spoon!",
+    "language": "en",
+    "file": "find-things-20"
+  },
+  {
+    "text": "포크를 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-21"
+  },
+  {
+    "text": "Find fork!",
+    "language": "en",
+    "file": "find-things-21"
+  },
+  {
+    "text": "그릇을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-22"
+  },
+  {
+    "text": "Find bowl!",
+    "language": "en",
+    "file": "find-things-22"
+  },
+  {
+    "text": "칫솔을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-23"
+  },
+  {
+    "text": "Find toothbrush!",
+    "language": "en",
+    "file": "find-things-23"
+  },
+  {
+    "text": "수건을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-24"
+  },
+  {
+    "text": "Find towel!",
+    "language": "en",
+    "file": "find-things-24"
+  },
+  {
+    "text": "의자를 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-25"
+  },
+  {
+    "text": "Find chair!",
+    "language": "en",
+    "file": "find-things-25"
+  },
+  {
+    "text": "책상을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-26"
+  },
+  {
+    "text": "Find desk!",
+    "language": "en",
+    "file": "find-things-26"
+  },
+  {
+    "text": "침대를 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-27"
+  },
+  {
+    "text": "Find bed!",
+    "language": "en",
+    "file": "find-things-27"
+  },
+  {
+    "text": "곰 인형을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-28"
+  },
+  {
+    "text": "Find teddy bear!",
+    "language": "en",
+    "file": "find-things-28"
+  },
+  {
+    "text": "풍선을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-29"
+  },
+  {
+    "text": "Find balloon!",
+    "language": "en",
+    "file": "find-things-29"
+  },
+  {
+    "text": "블록을 찾아보세요!",
+    "language": "ko",
+    "file": "find-things-30"
+  },
+  {
+    "text": "Find blocks!",
+    "language": "en",
+    "file": "find-things-30"
+  },
+  {
+    "text": "일을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-1"
+  },
+  {
+    "text": "Find one!",
+    "language": "en",
+    "file": "find-numbers-1"
+  },
+  {
+    "text": "이를 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-2"
+  },
+  {
+    "text": "Find two!",
+    "language": "en",
+    "file": "find-numbers-2"
+  },
+  {
+    "text": "삼을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-3"
+  },
+  {
+    "text": "Find three!",
+    "language": "en",
+    "file": "find-numbers-3"
+  },
+  {
+    "text": "사를 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-4"
+  },
+  {
+    "text": "Find four!",
+    "language": "en",
+    "file": "find-numbers-4"
+  },
+  {
+    "text": "오를 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-5"
+  },
+  {
+    "text": "Find five!",
+    "language": "en",
+    "file": "find-numbers-5"
+  },
+  {
+    "text": "육을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-6"
+  },
+  {
+    "text": "Find six!",
+    "language": "en",
+    "file": "find-numbers-6"
+  },
+  {
+    "text": "칠을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-7"
+  },
+  {
+    "text": "Find seven!",
+    "language": "en",
+    "file": "find-numbers-7"
+  },
+  {
+    "text": "팔을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-8"
+  },
+  {
+    "text": "Find eight!",
+    "language": "en",
+    "file": "find-numbers-8"
+  },
+  {
+    "text": "구를 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-9"
+  },
+  {
+    "text": "Find nine!",
+    "language": "en",
+    "file": "find-numbers-9"
+  },
+  {
+    "text": "십을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-10"
+  },
+  {
+    "text": "Find ten!",
+    "language": "en",
+    "file": "find-numbers-10"
+  },
+  {
+    "text": "십일을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-11"
+  },
+  {
+    "text": "Find eleven!",
+    "language": "en",
+    "file": "find-numbers-11"
+  },
+  {
+    "text": "십이를 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-12"
+  },
+  {
+    "text": "Find twelve!",
+    "language": "en",
+    "file": "find-numbers-12"
+  },
+  {
+    "text": "십삼을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-13"
+  },
+  {
+    "text": "Find thirteen!",
+    "language": "en",
+    "file": "find-numbers-13"
+  },
+  {
+    "text": "십사를 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-14"
+  },
+  {
+    "text": "Find fourteen!",
+    "language": "en",
+    "file": "find-numbers-14"
+  },
+  {
+    "text": "십오를 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-15"
+  },
+  {
+    "text": "Find fifteen!",
+    "language": "en",
+    "file": "find-numbers-15"
+  },
+  {
+    "text": "십육을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-16"
+  },
+  {
+    "text": "Find sixteen!",
+    "language": "en",
+    "file": "find-numbers-16"
+  },
+  {
+    "text": "십칠을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-17"
+  },
+  {
+    "text": "Find seventeen!",
+    "language": "en",
+    "file": "find-numbers-17"
+  },
+  {
+    "text": "십팔을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-18"
+  },
+  {
+    "text": "Find eighteen!",
+    "language": "en",
+    "file": "find-numbers-18"
+  },
+  {
+    "text": "십구를 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-19"
+  },
+  {
+    "text": "Find nineteen!",
+    "language": "en",
+    "file": "find-numbers-19"
+  },
+  {
+    "text": "이십을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-20"
+  },
+  {
+    "text": "Find twenty!",
+    "language": "en",
+    "file": "find-numbers-20"
+  },
+  {
+    "text": "이십일을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-21"
+  },
+  {
+    "text": "Find twenty-one!",
+    "language": "en",
+    "file": "find-numbers-21"
+  },
+  {
+    "text": "이십이를 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-22"
+  },
+  {
+    "text": "Find twenty-two!",
+    "language": "en",
+    "file": "find-numbers-22"
+  },
+  {
+    "text": "이십삼을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-23"
+  },
+  {
+    "text": "Find twenty-three!",
+    "language": "en",
+    "file": "find-numbers-23"
+  },
+  {
+    "text": "이십사를 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-24"
+  },
+  {
+    "text": "Find twenty-four!",
+    "language": "en",
+    "file": "find-numbers-24"
+  },
+  {
+    "text": "이십오를 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-25"
+  },
+  {
+    "text": "Find twenty-five!",
+    "language": "en",
+    "file": "find-numbers-25"
+  },
+  {
+    "text": "이십육을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-26"
+  },
+  {
+    "text": "Find twenty-six!",
+    "language": "en",
+    "file": "find-numbers-26"
+  },
+  {
+    "text": "이십칠을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-27"
+  },
+  {
+    "text": "Find twenty-seven!",
+    "language": "en",
+    "file": "find-numbers-27"
+  },
+  {
+    "text": "이십팔을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-28"
+  },
+  {
+    "text": "Find twenty-eight!",
+    "language": "en",
+    "file": "find-numbers-28"
+  },
+  {
+    "text": "이십구를 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-29"
+  },
+  {
+    "text": "Find twenty-nine!",
+    "language": "en",
+    "file": "find-numbers-29"
+  },
+  {
+    "text": "삼십을 찾아보세요!",
+    "language": "ko",
+    "file": "find-numbers-30"
+  },
+  {
+    "text": "Find thirty!",
+    "language": "en",
+    "file": "find-numbers-30"
+  },
+  {
+    "text": "가를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-1"
+  },
+  {
+    "text": "나를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-2"
+  },
+  {
+    "text": "다를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-3"
+  },
+  {
+    "text": "라를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-4"
+  },
+  {
+    "text": "마를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-5"
+  },
+  {
+    "text": "바를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-6"
+  },
+  {
+    "text": "사를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-7"
+  },
+  {
+    "text": "아를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-8"
+  },
+  {
+    "text": "자를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-9"
+  },
+  {
+    "text": "차를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-10"
+  },
+  {
+    "text": "카를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-11"
+  },
+  {
+    "text": "타를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-12"
+  },
+  {
+    "text": "파를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-13"
+  },
+  {
+    "text": "하를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-14"
+  },
+  {
+    "text": "거를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-15"
+  },
+  {
+    "text": "너를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-16"
+  },
+  {
+    "text": "더를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-17"
+  },
+  {
+    "text": "러를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-18"
+  },
+  {
+    "text": "머를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-19"
+  },
+  {
+    "text": "버를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-20"
+  },
+  {
+    "text": "서를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-21"
+  },
+  {
+    "text": "어를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-22"
+  },
+  {
+    "text": "저를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-23"
+  },
+  {
+    "text": "처를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-24"
+  },
+  {
+    "text": "커를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-25"
+  },
+  {
+    "text": "터를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-26"
+  },
+  {
+    "text": "퍼를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-27"
+  },
+  {
+    "text": "허를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-28"
+  },
+  {
+    "text": "고를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-29"
+  },
+  {
+    "text": "노를 찾아보세요!",
+    "language": "ko",
+    "file": "find-hangul-30"
+  },
+  {
+    "language": "ko",
+    "file": "correct",
+    "text": "맞았어요! 참 잘했어요!"
+  },
+  {
+    "language": "ko",
+    "file": "retry",
+    "text": "다시 찾아볼까요?"
+  },
+  {
+    "language": "en",
+    "file": "correct",
+    "text": "You found it! Well done!"
+  },
+  {
+    "language": "en",
+    "file": "retry",
+    "text": "Let’s try again!"
+  }
+]
