@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.tools/
+.venv/
+.env*
+!.env.example
+test-results/
+playwright-report/
+output/
+android/.gradle/
+android/local.properties
+android/**/build/
+*.keystore
+*.jks
+__pycache__/

@@ -1,0 +1,7 @@
+{
+  "appId": "com.malang.wordplay",
+  "appName": "말랑말랑 단어놀이",
+  "webDir": "dist",
+  "server": {"androidScheme": "https"},
+  "android": {"backgroundColor": "#FFF9EF"}
+}

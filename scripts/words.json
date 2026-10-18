@@ -1,0 +1,1112 @@
+[
+  {
+    "id": "animals-1",
+    "category": "animals",
+    "index": 0,
+    "ko": "강아지",
+    "en": "Dog"
+  },
+  {
+    "id": "animals-2",
+    "category": "animals",
+    "index": 1,
+    "ko": "고양이",
+    "en": "Cat"
+  },
+  {
+    "id": "animals-3",
+    "category": "animals",
+    "index": 2,
+    "ko": "토끼",
+    "en": "Rabbit"
+  },
+  {
+    "id": "animals-4",
+    "category": "animals",
+    "index": 3,
+    "ko": "곰",
+    "en": "Bear"
+  },
+  {
+    "id": "animals-5",
+    "category": "animals",
+    "index": 4,
+    "ko": "사자",
+    "en": "Lion"
+  },
+  {
+    "id": "animals-6",
+    "category": "animals",
+    "index": 5,
+    "ko": "호랑이",
+    "en": "Tiger"
+  },
+  {
+    "id": "animals-7",
+    "category": "animals",
+    "index": 6,
+    "ko": "코끼리",
+    "en": "Elephant"
+  },
+  {
+    "id": "animals-8",
+    "category": "animals",
+    "index": 7,
+    "ko": "기린",
+    "en": "Giraffe"
+  },
+  {
+    "id": "animals-9",
+    "category": "animals",
+    "index": 8,
+    "ko": "얼룩말",
+    "en": "Zebra"
+  },
+  {
+    "id": "animals-10",
+    "category": "animals",
+    "index": 9,
+    "ko": "원숭이",
+    "en": "Monkey"
+  },
+  {
+    "id": "animals-11",
+    "category": "animals",
+    "index": 10,
+    "ko": "판다",
+    "en": "Panda"
+  },
+  {
+    "id": "animals-12",
+    "category": "animals",
+    "index": 11,
+    "ko": "코알라",
+    "en": "Koala"
+  },
+  {
+    "id": "animals-13",
+    "category": "animals",
+    "index": 12,
+    "ko": "소",
+    "en": "Cow"
+  },
+  {
+    "id": "animals-14",
+    "category": "animals",
+    "index": 13,
+    "ko": "돼지",
+    "en": "Pig"
+  },
+  {
+    "id": "animals-15",
+    "category": "animals",
+    "index": 14,
+    "ko": "말",
+    "en": "Horse"
+  },
+  {
+    "id": "animals-16",
+    "category": "animals",
+    "index": 15,
+    "ko": "양",
+    "en": "Sheep"
+  },
+  {
+    "id": "animals-17",
+    "category": "animals",
+    "index": 16,
+    "ko": "염소",
+    "en": "Goat"
+  },
+  {
+    "id": "animals-18",
+    "category": "animals",
+    "index": 17,
+    "ko": "사슴",
+    "en": "Deer"
+  },
+  {
+    "id": "animals-19",
+    "category": "animals",
+    "index": 18,
+    "ko": "다람쥐",
+    "en": "Squirrel"
+  },
+  {
+    "id": "animals-20",
+    "category": "animals",
+    "index": 19,
+    "ko": "여우",
+    "en": "Fox"
+  },
+  {
+    "id": "animals-21",
+    "category": "animals",
+    "index": 20,
+    "ko": "늑대",
+    "en": "Wolf"
+  },
+  {
+    "id": "animals-22",
+    "category": "animals",
+    "index": 21,
+    "ko": "하마",
+    "en": "Hippopotamus"
+  },
+  {
+    "id": "animals-23",
+    "category": "animals",
+    "index": 22,
+    "ko": "코뿔소",
+    "en": "Rhinoceros"
+  },
+  {
+    "id": "animals-24",
+    "category": "animals",
+    "index": 23,
+    "ko": "캥거루",
+    "en": "Kangaroo"
+  },
+  {
+    "id": "animals-25",
+    "category": "animals",
+    "index": 24,
+    "ko": "펭귄",
+    "en": "Penguin"
+  },
+  {
+    "id": "animals-26",
+    "category": "animals",
+    "index": 25,
+    "ko": "오리",
+    "en": "Duck"
+  },
+  {
+    "id": "animals-27",
+    "category": "animals",
+    "index": 26,
+    "ko": "닭",
+    "en": "Chicken"
+  },
+  {
+    "id": "animals-28",
+    "category": "animals",
+    "index": 27,
+    "ko": "부엉이",
+    "en": "Owl"
+  },
+  {
+    "id": "animals-29",
+    "category": "animals",
+    "index": 28,
+    "ko": "거북이",
+    "en": "Turtle"
+  },
+  {
+    "id": "animals-30",
+    "category": "animals",
+    "index": 29,
+    "ko": "돌고래",
+    "en": "Dolphin"
+  },
+  {
+    "id": "food-1",
+    "category": "food",
+    "index": 0,
+    "ko": "사과",
+    "en": "Apple"
+  },
+  {
+    "id": "food-2",
+    "category": "food",
+    "index": 1,
+    "ko": "바나나",
+    "en": "Banana"
+  },
+  {
+    "id": "food-3",
+    "category": "food",
+    "index": 2,
+    "ko": "딸기",
+    "en": "Strawberry"
+  },
+  {
+    "id": "food-4",
+    "category": "food",
+    "index": 3,
+    "ko": "오렌지",
+    "en": "Orange"
+  },
+  {
+    "id": "food-5",
+    "category": "food",
+    "index": 4,
+    "ko": "포도",
+    "en": "Grapes"
+  },
+  {
+    "id": "food-6",
+    "category": "food",
+    "index": 5,
+    "ko": "수박",
+    "en": "Watermelon"
+  },
+  {
+    "id": "food-7",
+    "category": "food",
+    "index": 6,
+    "ko": "복숭아",
+    "en": "Peach"
+  },
+  {
+    "id": "food-8",
+    "category": "food",
+    "index": 7,
+    "ko": "배",
+    "en": "Pear"
+  },
+  {
+    "id": "food-9",
+    "category": "food",
+    "index": 8,
+    "ko": "키위",
+    "en": "Kiwi"
+  },
+  {
+    "id": "food-10",
+    "category": "food",
+    "index": 9,
+    "ko": "파인애플",
+    "en": "Pineapple"
+  },
+  {
+    "id": "food-11",
+    "category": "food",
+    "index": 10,
+    "ko": "망고",
+    "en": "Mango"
+  },
+  {
+    "id": "food-12",
+    "category": "food",
+    "index": 11,
+    "ko": "블루베리",
+    "en": "Blueberries"
+  },
+  {
+    "id": "food-13",
+    "category": "food",
+    "index": 12,
+    "ko": "체리",
+    "en": "Cherries"
+  },
+  {
+    "id": "food-14",
+    "category": "food",
+    "index": 13,
+    "ko": "레몬",
+    "en": "Lemon"
+  },
+  {
+    "id": "food-15",
+    "category": "food",
+    "index": 14,
+    "ko": "감",
+    "en": "Persimmon"
+  },
+  {
+    "id": "food-16",
+    "category": "food",
+    "index": 15,
+    "ko": "멜론",
+    "en": "Melon"
+  },
+  {
+    "id": "food-17",
+    "category": "food",
+    "index": 16,
+    "ko": "자두",
+    "en": "Plum"
+  },
+  {
+    "id": "food-18",
+    "category": "food",
+    "index": 17,
+    "ko": "아보카도",
+    "en": "Avocado"
+  },
+  {
+    "id": "food-19",
+    "category": "food",
+    "index": 18,
+    "ko": "당근",
+    "en": "Carrot"
+  },
+  {
+    "id": "food-20",
+    "category": "food",
+    "index": 19,
+    "ko": "브로콜리",
+    "en": "Broccoli"
+  },
+  {
+    "id": "food-21",
+    "category": "food",
+    "index": 20,
+    "ko": "오이",
+    "en": "Cucumber"
+  },
+  {
+    "id": "food-22",
+    "category": "food",
+    "index": 21,
+    "ko": "토마토",
+    "en": "Tomato"
+  },
+  {
+    "id": "food-23",
+    "category": "food",
+    "index": 22,
+    "ko": "감자",
+    "en": "Potato"
+  },
+  {
+    "id": "food-24",
+    "category": "food",
+    "index": 23,
+    "ko": "고구마",
+    "en": "Sweet potato"
+  },
+  {
+    "id": "food-25",
+    "category": "food",
+    "index": 24,
+    "ko": "양파",
+    "en": "Onion"
+  },
+  {
+    "id": "food-26",
+    "category": "food",
+    "index": 25,
+    "ko": "옥수수",
+    "en": "Corn"
+  },
+  {
+    "id": "food-27",
+    "category": "food",
+    "index": 26,
+    "ko": "호박",
+    "en": "Pumpkin"
+  },
+  {
+    "id": "food-28",
+    "category": "food",
+    "index": 27,
+    "ko": "양배추",
+    "en": "Cabbage"
+  },
+  {
+    "id": "food-29",
+    "category": "food",
+    "index": 28,
+    "ko": "시금치",
+    "en": "Spinach"
+  },
+  {
+    "id": "food-30",
+    "category": "food",
+    "index": 29,
+    "ko": "파프리카",
+    "en": "Bell pepper"
+  },
+  {
+    "id": "things-1",
+    "category": "things",
+    "index": 0,
+    "ko": "공",
+    "en": "Ball"
+  },
+  {
+    "id": "things-2",
+    "category": "things",
+    "index": 1,
+    "ko": "자동차",
+    "en": "Car"
+  },
+  {
+    "id": "things-3",
+    "category": "things",
+    "index": 2,
+    "ko": "버스",
+    "en": "Bus"
+  },
+  {
+    "id": "things-4",
+    "category": "things",
+    "index": 3,
+    "ko": "기차",
+    "en": "Train"
+  },
+  {
+    "id": "things-5",
+    "category": "things",
+    "index": 4,
+    "ko": "비행기",
+    "en": "Airplane"
+  },
+  {
+    "id": "things-6",
+    "category": "things",
+    "index": 5,
+    "ko": "배",
+    "en": "Boat"
+  },
+  {
+    "id": "things-7",
+    "category": "things",
+    "index": 6,
+    "ko": "책",
+    "en": "Book"
+  },
+  {
+    "id": "things-8",
+    "category": "things",
+    "index": 7,
+    "ko": "연필",
+    "en": "Pencil"
+  },
+  {
+    "id": "things-9",
+    "category": "things",
+    "index": 8,
+    "ko": "크레용",
+    "en": "Crayons"
+  },
+  {
+    "id": "things-10",
+    "category": "things",
+    "index": 9,
+    "ko": "가방",
+    "en": "Backpack"
+  },
+  {
+    "id": "things-11",
+    "category": "things",
+    "index": 10,
+    "ko": "신발",
+    "en": "Shoes"
+  },
+  {
+    "id": "things-12",
+    "category": "things",
+    "index": 11,
+    "ko": "모자",
+    "en": "Hat"
+  },
+  {
+    "id": "things-13",
+    "category": "things",
+    "index": 12,
+    "ko": "양말",
+    "en": "Socks"
+  },
+  {
+    "id": "things-14",
+    "category": "things",
+    "index": 13,
+    "ko": "티셔츠",
+    "en": "T-shirt"
+  },
+  {
+    "id": "things-15",
+    "category": "things",
+    "index": 14,
+    "ko": "우산",
+    "en": "Umbrella"
+  },
+  {
+    "id": "things-16",
+    "category": "things",
+    "index": 15,
+    "ko": "시계",
+    "en": "Clock"
+  },
+  {
+    "id": "things-17",
+    "category": "things",
+    "index": 16,
+    "ko": "전화기",
+    "en": "Telephone"
+  },
+  {
+    "id": "things-18",
+    "category": "things",
+    "index": 17,
+    "ko": "카메라",
+    "en": "Camera"
+  },
+  {
+    "id": "things-19",
+    "category": "things",
+    "index": 18,
+    "ko": "컵",
+    "en": "Cup"
+  },
+  {
+    "id": "things-20",
+    "category": "things",
+    "index": 19,
+    "ko": "숟가락",
+    "en": "Spoon"
+  },
+  {
+    "id": "things-21",
+    "category": "things",
+    "index": 20,
+    "ko": "포크",
+    "en": "Fork"
+  },
+  {
+    "id": "things-22",
+    "category": "things",
+    "index": 21,
+    "ko": "그릇",
+    "en": "Bowl"
+  },
+  {
+    "id": "things-23",
+    "category": "things",
+    "index": 22,
+    "ko": "칫솔",
+    "en": "Toothbrush"
+  },
+  {
+    "id": "things-24",
+    "category": "things",
+    "index": 23,
+    "ko": "수건",
+    "en": "Towel"
+  },
+  {
+    "id": "things-25",
+    "category": "things",
+    "index": 24,
+    "ko": "의자",
+    "en": "Chair"
+  },
+  {
+    "id": "things-26",
+    "category": "things",
+    "index": 25,
+    "ko": "책상",
+    "en": "Desk"
+  },
+  {
+    "id": "things-27",
+    "category": "things",
+    "index": 26,
+    "ko": "침대",
+    "en": "Bed"
+  },
+  {
+    "id": "things-28",
+    "category": "things",
+    "index": 27,
+    "ko": "곰 인형",
+    "en": "Teddy bear"
+  },
+  {
+    "id": "things-29",
+    "category": "things",
+    "index": 28,
+    "ko": "풍선",
+    "en": "Balloon"
+  },
+  {
+    "id": "things-30",
+    "category": "things",
+    "index": 29,
+    "ko": "블록",
+    "en": "Blocks"
+  },
+  {
+    "id": "numbers-1",
+    "category": "numbers",
+    "index": 0,
+    "ko": "일",
+    "en": "One",
+    "symbol": "1"
+  },
+  {
+    "id": "numbers-2",
+    "category": "numbers",
+    "index": 1,
+    "ko": "이",
+    "en": "Two",
+    "symbol": "2"
+  },
+  {
+    "id": "numbers-3",
+    "category": "numbers",
+    "index": 2,
+    "ko": "삼",
+    "en": "Three",
+    "symbol": "3"
+  },
+  {
+    "id": "numbers-4",
+    "category": "numbers",
+    "index": 3,
+    "ko": "사",
+    "en": "Four",
+    "symbol": "4"
+  },
+  {
+    "id": "numbers-5",
+    "category": "numbers",
+    "index": 4,
+    "ko": "오",
+    "en": "Five",
+    "symbol": "5"
+  },
+  {
+    "id": "numbers-6",
+    "category": "numbers",
+    "index": 5,
+    "ko": "육",
+    "en": "Six",
+    "symbol": "6"
+  },
+  {
+    "id": "numbers-7",
+    "category": "numbers",
+    "index": 6,
+    "ko": "칠",
+    "en": "Seven",
+    "symbol": "7"
+  },
+  {
+    "id": "numbers-8",
+    "category": "numbers",
+    "index": 7,
+    "ko": "팔",
+    "en": "Eight",
+    "symbol": "8"
+  },
+  {
+    "id": "numbers-9",
+    "category": "numbers",
+    "index": 8,
+    "ko": "구",
+    "en": "Nine",
+    "symbol": "9"
+  },
+  {
+    "id": "numbers-10",
+    "category": "numbers",
+    "index": 9,
+    "ko": "십",
+    "en": "Ten",
+    "symbol": "10"
+  },
+  {
+    "id": "numbers-11",
+    "category": "numbers",
+    "index": 10,
+    "ko": "십일",
+    "en": "Eleven",
+    "symbol": "11"
+  },
+  {
+    "id": "numbers-12",
+    "category": "numbers",
+    "index": 11,
+    "ko": "십이",
+    "en": "Twelve",
+    "symbol": "12"
+  },
+  {
+    "id": "numbers-13",
+    "category": "numbers",
+    "index": 12,
+    "ko": "십삼",
+    "en": "Thirteen",
+    "symbol": "13"
+  },
+  {
+    "id": "numbers-14",
+    "category": "numbers",
+    "index": 13,
+    "ko": "십사",
+    "en": "Fourteen",
+    "symbol": "14"
+  },
+  {
+    "id": "numbers-15",
+    "category": "numbers",
+    "index": 14,
+    "ko": "십오",
+    "en": "Fifteen",
+    "symbol": "15"
+  },
+  {
+    "id": "numbers-16",
+    "category": "numbers",
+    "index": 15,
+    "ko": "십육",
+    "en": "Sixteen",
+    "symbol": "16"
+  },
+  {
+    "id": "numbers-17",
+    "category": "numbers",
+    "index": 16,
+    "ko": "십칠",
+    "en": "Seventeen",
+    "symbol": "17"
+  },
+  {
+    "id": "numbers-18",
+    "category": "numbers",
+    "index": 17,
+    "ko": "십팔",
+    "en": "Eighteen",
+    "symbol": "18"
+  },
+  {
+    "id": "numbers-19",
+    "category": "numbers",
+    "index": 18,
+    "ko": "십구",
+    "en": "Nineteen",
+    "symbol": "19"
+  },
+  {
+    "id": "numbers-20",
+    "category": "numbers",
+    "index": 19,
+    "ko": "이십",
+    "en": "Twenty",
+    "symbol": "20"
+  },
+  {
+    "id": "numbers-21",
+    "category": "numbers",
+    "index": 20,
+    "ko": "이십일",
+    "en": "Twenty-one",
+    "symbol": "21"
+  },
+  {
+    "id": "numbers-22",
+    "category": "numbers",
+    "index": 21,
+    "ko": "이십이",
+    "en": "Twenty-two",
+    "symbol": "22"
+  },
+  {
+    "id": "numbers-23",
+    "category": "numbers",
+    "index": 22,
+    "ko": "이십삼",
+    "en": "Twenty-three",
+    "symbol": "23"
+  },
+  {
+    "id": "numbers-24",
+    "category": "numbers",
+    "index": 23,
+    "ko": "이십사",
+    "en": "Twenty-four",
+    "symbol": "24"
+  },
+  {
+    "id": "numbers-25",
+    "category": "numbers",
+    "index": 24,
+    "ko": "이십오",
+    "en": "Twenty-five",
+    "symbol": "25"
+  },
+  {
+    "id": "numbers-26",
+    "category": "numbers",
+    "index": 25,
+    "ko": "이십육",
+    "en": "Twenty-six",
+    "symbol": "26"
+  },
+  {
+    "id": "numbers-27",
+    "category": "numbers",
+    "index": 26,
+    "ko": "이십칠",
+    "en": "Twenty-seven",
+    "symbol": "27"
+  },
+  {
+    "id": "numbers-28",
+    "category": "numbers",
+    "index": 27,
+    "ko": "이십팔",
+    "en": "Twenty-eight",
+    "symbol": "28"
+  },
+  {
+    "id": "numbers-29",
+    "category": "numbers",
+    "index": 28,
+    "ko": "이십구",
+    "en": "Twenty-nine",
+    "symbol": "29"
+  },
+  {
+    "id": "numbers-30",
+    "category": "numbers",
+    "index": 29,
+    "ko": "삼십",
+    "en": "Thirty",
+    "symbol": "30"
+  },
+  {
+    "id": "hangul-1",
+    "category": "hangul",
+    "index": 0,
+    "ko": "가",
+    "en": "ga",
+    "symbol": "가"
+  },
+  {
+    "id": "hangul-2",
+    "category": "hangul",
+    "index": 1,
+    "ko": "나",
+    "en": "na",
+    "symbol": "나"
+  },
+  {
+    "id": "hangul-3",
+    "category": "hangul",
+    "index": 2,
+    "ko": "다",
+    "en": "da",
+    "symbol": "다"
+  },
+  {
+    "id": "hangul-4",
+    "category": "hangul",
+    "index": 3,
+    "ko": "라",
+    "en": "ra",
+    "symbol": "라"
+  },
+  {
+    "id": "hangul-5",
+    "category": "hangul",
+    "index": 4,
+    "ko": "마",
+    "en": "ma",
+    "symbol": "마"
+  },
+  {
+    "id": "hangul-6",
+    "category": "hangul",
+    "index": 5,
+    "ko": "바",
+    "en": "ba",
+    "symbol": "바"
+  },
+  {
+    "id": "hangul-7",
+    "category": "hangul",
+    "index": 6,
+    "ko": "사",
+    "en": "sa",
+    "symbol": "사"
+  },
+  {
+    "id": "hangul-8",
+    "category": "hangul",
+    "index": 7,
+    "ko": "아",
+    "en": "a",
+    "symbol": "아"
+  },
+  {
+    "id": "hangul-9",
+    "category": "hangul",
+    "index": 8,
+    "ko": "자",
+    "en": "ja",
+    "symbol": "자"
+  },
+  {
+    "id": "hangul-10",
+    "category": "hangul",
+    "index": 9,
+    "ko": "차",
+    "en": "cha",
+    "symbol": "차"
+  },
+  {
+    "id": "hangul-11",
+    "category": "hangul",
+    "index": 10,
+    "ko": "카",
+    "en": "ka",
+    "symbol": "카"
+  },
+  {
+    "id": "hangul-12",
+    "category": "hangul",
+    "index": 11,
+    "ko": "타",
+    "en": "ta",
+    "symbol": "타"
+  },
+  {
+    "id": "hangul-13",
+    "category": "hangul",
+    "index": 12,
+    "ko": "파",
+    "en": "pa",
+    "symbol": "파"
+  },
+  {
+    "id": "hangul-14",
+    "category": "hangul",
+    "index": 13,
+    "ko": "하",
+    "en": "ha",
+    "symbol": "하"
+  },
+  {
+    "id": "hangul-15",
+    "category": "hangul",
+    "index": 14,
+    "ko": "거",
+    "en": "geo",
+    "symbol": "거"
+  },
+  {
+    "id": "hangul-16",
+    "category": "hangul",
+    "index": 15,
+    "ko": "너",
+    "en": "neo",
+    "symbol": "너"
+  },
+  {
+    "id": "hangul-17",
+    "category": "hangul",
+    "index": 16,
+    "ko": "더",
+    "en": "deo",
+    "symbol": "더"
+  },
+  {
+    "id": "hangul-18",
+    "category": "hangul",
+    "index": 17,
+    "ko": "러",
+    "en": "reo",
+    "symbol": "러"
+  },
+  {
+    "id": "hangul-19",
+    "category": "hangul",
+    "index": 18,
+    "ko": "머",
+    "en": "meo",
+    "symbol": "머"
+  },
+  {
+    "id": "hangul-20",
+    "category": "hangul",
+    "index": 19,
+    "ko": "버",
+    "en": "beo",
+    "symbol": "버"
+  },
+  {
+    "id": "hangul-21",
+    "category": "hangul",
+    "index": 20,
+    "ko": "서",
+    "en": "seo",
+    "symbol": "서"
+  },
+  {
+    "id": "hangul-22",
+    "category": "hangul",
+    "index": 21,
+    "ko": "어",
+    "en": "eo",
+    "symbol": "어"
+  },
+  {
+    "id": "hangul-23",
+    "category": "hangul",
+    "index": 22,
+    "ko": "저",
+    "en": "jeo",
+    "symbol": "저"
+  },
+  {
+    "id": "hangul-24",
+    "category": "hangul",
+    "index": 23,
+    "ko": "처",
+    "en": "cheo",
+    "symbol": "처"
+  },
+  {
+    "id": "hangul-25",
+    "category": "hangul",
+    "index": 24,
+    "ko": "커",
+    "en": "keo",
+    "symbol": "커"
+  },
+  {
+    "id": "hangul-26",
+    "category": "hangul",
+    "index": 25,
+    "ko": "터",
+    "en": "teo",
+    "symbol": "터"
+  },
+  {
+    "id": "hangul-27",
+    "category": "hangul",
+    "index": 26,
+    "ko": "퍼",
+    "en": "peo",
+    "symbol": "퍼"
+  },
+  {
+    "id": "hangul-28",
+    "category": "hangul",
+    "index": 27,
+    "ko": "허",
+    "en": "heo",
+    "symbol": "허"
+  },
+  {
+    "id": "hangul-29",
+    "category": "hangul",
+    "index": 28,
+    "ko": "고",
+    "en": "go",
+    "symbol": "고"
+  },
+  {
+    "id": "hangul-30",
+    "category": "hangul",
+    "index": 29,
+    "ko": "노",
+    "en": "no",
+    "symbol": "노"
+  }
+]

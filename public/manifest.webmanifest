@@ -1,0 +1,17 @@
+{
+  "id": "./",
+  "name": "말랑말랑 단어놀이",
+  "short_name": "말랑말랑",
+  "description": "우리 아이 첫 단어 친구",
+  "lang": "ko",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FFF9EF",
+  "theme_color": "#FFF9EF",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}

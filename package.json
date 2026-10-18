@@ -1,0 +1,25 @@
+{
+  "name": "malang-word-play",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build && node scripts/build-sw.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test tests/data.test.mjs",
+    "test:e2e": "playwright test",
+    "android:sync": "npm run build && cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.5.3",
+    "@capacitor/core": "8.5.3",
+    "@fontsource-variable/noto-sans-kr": "^5.3.1",
+    "@fontsource/jua": "^5.3.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.5.3",
+    "@playwright/test": "^1.56.1",
+    "vite": "^7.1.12"
+  }
+}
