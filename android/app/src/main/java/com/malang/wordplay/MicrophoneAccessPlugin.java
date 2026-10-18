@@ -15,12 +15,14 @@ import com.getcapacitor.annotation.PermissionCallback;
 
 @CapacitorPlugin(name="MicrophoneAccess", permissions={@Permission(alias="microphone",strings={Manifest.permission.RECORD_AUDIO})})
 public class MicrophoneAccessPlugin extends Plugin {
-    @PluginMethod public void status(PluginCall call) {
+    private JSObject currentStatus() {
         JSObject result=new JSObject();
         PermissionState state=getPermissionState("microphone");
         result.put("state",state==PermissionState.GRANTED?"granted":state==PermissionState.DENIED?"denied":"prompt");
-        call.resolve(result);
+        return result;
     }
+    @PluginMethod public void status(PluginCall call) {call.resolve(currentStatus());}
+    @Override protected void handleOnResume(){notifyListeners("permissionStatusChanged",currentStatus());}
     @PluginMethod public void requestAccess(PluginCall call) {
         if(getPermissionState("microphone")==PermissionState.GRANTED){status(call);return;}
         requestPermissionForAlias("microphone",call,"permissionResult");

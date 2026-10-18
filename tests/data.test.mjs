@@ -48,3 +48,11 @@ test('alphabet uses English letter names and separate case identifiers',()=>{
   for(let i=0;i<26;i++){assert.deepEqual(getSpeech(lower[i],'ko'),{language:'en',text:upper[i].symbol});assert.notEqual(upper[i].id,lower[i].id);}
   assert.equal(question(upper[0],'ko').text,'대문자 에이를 찾아보세요!');assert.equal(question(lower[0],'en').text,'Find lowercase A!');
 });
+test('Android manifest declares every permission required by WebView audio capture',async()=>{
+  const bridge=await readFile('node_modules/@capacitor/android/capacitor/src/main/java/com/getcapacitor/BridgeWebChromeClient.java','utf8');
+  const block=bridge.match(/if \(Arrays\.asList\(request\.getResources\(\)\)\.contains\("android\.webkit\.resource\.AUDIO_CAPTURE"\)\) \{([\s\S]*?)\}/)[1];
+  const required=[...block.matchAll(/Manifest\.permission\.([A-Z_]+)/g)].map(m=>m[1]);
+  assert.ok(required.length>0);
+  const manifest=await readFile('android/app/src/main/AndroidManifest.xml','utf8');
+  for(const permission of required)assert.ok(manifest.includes(`android:name="android.permission.${permission}"`),`Missing WebView audio permission: ${permission}`);
+});

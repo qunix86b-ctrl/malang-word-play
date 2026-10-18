@@ -41,6 +41,18 @@ test('permission button requests microphone without recording and releases track
   await page.locator('#mic-settings').click();await expect(page.locator('#mic-help')).toBeVisible();await page.screenshot({path:'output/microphone-permission.png'});
 });
 test('denied permission provides visible instructions and preserves retry button',async({page})=>{
-  await page.goto('/');await page.evaluate(()=>{navigator.mediaDevices.getUserMedia=async()=>{throw new DOMException('Denied','NotAllowedError');};});
+  await page.goto('/');await page.evaluate(()=>{navigator.permissions.query=async()=>({state:'denied'});navigator.mediaDevices.getUserMedia=async()=>{throw new DOMException('Denied','NotAllowedError');};});
   await openRecorder(page);await page.locator('#mic-permission').click();await expect(page.locator('#mic-status')).toContainText('차단');await expect(page.locator('#mic-help')).toBeVisible();await expect(page.locator('#mic-permission')).toBeEnabled();
+});
+test('returning after granting permission clears old denied instructions',async({page})=>{
+  await page.goto('/');await page.evaluate(()=>{window.micState='denied';navigator.permissions.query=async()=>({state:window.micState});});
+  await openRecorder(page);await expect(page.locator('#mic-help')).toBeVisible();
+  await page.evaluate(()=>{window.micState='granted';window.dispatchEvent(new Event('focus'));});
+  await expect(page.locator('#mic-status')).toContainText('허용되어');await expect(page.locator('#mic-help')).toBeHidden();await expect(page.locator('#mic-permission')).toHaveText('마이크 연결 확인하기');
+  await page.locator('#record-start').click();await expect(page.locator('#record-status')).toContainText('녹음 중');await page.locator('#record-stop').click();await expect(page.locator('#save-record')).toBeEnabled();
+});
+test('OS permission granted but capture denied does not ask for the same permission again',async({page})=>{
+  await page.goto('/');await page.evaluate(()=>{navigator.permissions.query=async()=>({state:'granted'});navigator.mediaDevices.getUserMedia=async()=>{throw new DOMException('Capture blocked','NotAllowedError');};});
+  await openRecorder(page);await page.locator('#mic-permission').click();await expect(page.locator('#mic-status')).toContainText('권한은 허용');await expect(page.locator('#mic-help')).toBeHidden();
+  await page.locator('#record-start').click();await expect(page.locator('#mic-status')).toContainText('녹음 연결이 차단');await expect(page.locator('#mic-help')).toBeHidden();await expect(page.locator('#record-start')).toBeEnabled();
 });

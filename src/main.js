@@ -6,7 +6,7 @@ import { categories, words } from './data.js';
 import { sticker } from './stickers.js';
 import { speak, stopAudio, playBlob, playPrompt } from './audio.js';
 import { question, feedback, nextTarget } from './game.js';
-import { microphoneStatus, requestMicrophone, openMicrophoneSettings, isAndroidApp } from './permissions.js';
+import { microphoneStatus, requestMicrophone, openMicrophoneSettings, isAndroidApp, watchMicrophoneStatus, microphoneErrorMessage } from './permissions.js';
 import { allRecordings, getRecording, saveRecordings, deleteRecording, recordingKey } from './storage.js';
 
 const defaults={lang:'ko',voice:'mom',rate:0.9,labels:true};
@@ -88,7 +88,7 @@ function openSettings(){
   <div class="setting-row"><label for="rate">AI 음성 속도</label><select id="rate"><option value="0.8">천천히</option><option value="0.9">조금 천천히</option><option value="1">보통</option></select></div>
   <div class="setting-row"><label for="labels">그림 아래 단어 보기</label><input id="labels" type="checkbox" ${settings.labels?'checked':''}/></div>
   <div class="setting-section"><h3>녹음 보관하기</h3><p class="help">녹음은 이 기기에만 저장돼요. 앱 삭제나 브라우저 데이터 삭제 전에 파일로 보관해 주세요. 다른 기기로 자동 전송되지 않아요.</p><div class="button-row"><button class="secondary" id="export">녹음 내보내기</button><button class="secondary" id="import">녹음 가져오기</button></div><input hidden id="backup-file" type="file" accept="application/json,.json"/></div>
-  <div class="setting-section install-section"><h3>앱으로 사용하기</h3><p class="help">${Capacitor.isNativePlatform()?'안드로이드 앱으로 실행 중이에요.':'갤럭시 Chrome 메뉴에서 “홈 화면에 추가” 또는 “앱 설치”를 선택하세요. 처음에는 인터넷에 연결해 주세요.'}</p>${installPrompt?'<button class="secondary" id="install">앱 설치하기</button>':''}<p class="privacy-note">로그인·광고·추적 없이 이용해요.<br/>사진 스티커와 기본 음성은 AI로 만들어졌어요. v1.2.0</p></div>`);wireClose();
+  <div class="setting-section install-section"><h3>앱으로 사용하기</h3><p class="help">${Capacitor.isNativePlatform()?'안드로이드 앱으로 실행 중이에요.':'갤럭시 Chrome 메뉴에서 “홈 화면에 추가” 또는 “앱 설치”를 선택하세요. 처음에는 인터넷에 연결해 주세요.'}</p>${installPrompt?'<button class="secondary" id="install">앱 설치하기</button>':''}<p class="privacy-note">로그인·광고·추적 없이 이용해요.<br/>사진 스티커와 기본 음성은 AI로 만들어졌어요. v1.2.1</p></div>`);wireClose();
   document.querySelectorAll('[data-voice]').forEach(b=>b.onclick=()=>{settings.voice=b.dataset.voice;persist();openSettings();});
   const rate=document.querySelector('#rate');rate.value=settings.rate;rate.onchange=()=>{settings.rate=Number(rate.value);persist();};
   document.querySelector('#labels').onchange=e=>{settings.labels=e.target.checked;persist();};
@@ -138,7 +138,8 @@ async function refreshMicrophone(){
   try{
     const state=await microphoneStatus();if(generation!==recordingGeneration||!el.isConnected)return;
     el.textContent=state==='granted'?'마이크가 허용되어 있어요. 녹음을 시작할 수 있어요.':state==='denied'?'마이크가 차단되어 있어요. 권한 설정에서 허용해 주세요.':state==='unsupported'?'마이크를 지원하는 앱 또는 HTTPS 브라우저에서 열어 주세요.':'아래 버튼을 누르고 권한 창에서 허용을 선택해 주세요.';
-    if(state==='denied')document.querySelector('#mic-help').hidden=false;
+    document.querySelector('#mic-help').hidden=state!=='denied';
+    document.querySelector('#mic-permission').textContent=state==='granted'?'마이크 연결 확인하기':'마이크 권한 허용하기';
   }catch{if(el.isConnected)el.textContent='아래 버튼으로 마이크 권한을 확인해 주세요.';}
 }
 async function prepareMicrophone(){
@@ -149,13 +150,18 @@ async function prepareMicrophone(){
     const state=await requestMicrophone();if(generation!==recordingGeneration||!el.isConnected)return;
     if(state!=='granted')throw new DOMException('Denied','NotAllowedError');
     el.textContent='마이크가 허용됐어요! 녹음 시작을 눌러 주세요.';
+    document.querySelector('#mic-help').hidden=true;
+    document.querySelector('#mic-permission').textContent='마이크 연결 확인하기';
   }catch(error){
     if(generation!==recordingGeneration||!el.isConnected)return;
-    el.textContent=error.name==='NotAllowedError'?'마이크가 차단되어 있어요. 권한 설정에서 허용해 주세요.':'마이크를 사용할 수 없어요. 연결과 권한 설정을 확인해 주세요.';
-    document.querySelector('#mic-help').hidden=false;
+    const state=await microphoneStatus().catch(()=>'unknown');
+    if(generation!==recordingGeneration||!el.isConnected)return;
+    el.textContent=microphoneErrorMessage(error,state);
+    document.querySelector('#mic-help').hidden=state==='granted';
   }finally{if(generation===recordingGeneration)controls.forEach(([control,disabled])=>{if(control.isConnected)control.disabled=disabled;});}
 }
 window.addEventListener('focus',refreshMicrophone);
+watchMicrophoneStatus(refreshMicrophone);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshMicrophone();});
 function recordBusy(busy){
   modal.querySelectorAll('select, #back-settings, #play-saved, #delete-saved, #preview-draft, #save-record, #mic-permission, #mic-settings').forEach(el=>el.disabled=busy);
@@ -166,11 +172,12 @@ async function startRecording(){
   if(!navigator.mediaDevices?.getUserMedia || !globalThis.MediaRecorder){toast('마이크 녹음을 지원하는 Chrome 또는 안드로이드 앱에서 열어 주세요.');return;}
   recordBusy(true);document.querySelector('#record-status').textContent='마이크 사용을 허용해 주세요.';
   try{
-    if(isAndroidApp()&&await requestMicrophone()!=='granted')throw new DOMException('마이크 권한이 필요해요.','NotAllowedError');
+    if(isAndroidApp()&&await requestMicrophone({verify:false})!=='granted')throw new DOMException('마이크 권한이 필요해요.','NotAllowedError');
     if(generation!==recordingGeneration)return;
     const acquired=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true},video:false});
     if(generation!==recordingGeneration){acquired.getTracks().forEach(t=>t.stop());return;}
     stream=acquired;
+    document.querySelector('#mic-status').textContent='마이크가 연결됐어요.';document.querySelector('#mic-help').hidden=true;
     const mime=['audio/webm;codecs=opus','audio/webm','audio/mp4'].find(type=>MediaRecorder.isTypeSupported(type));
     recorder=new MediaRecorder(stream,mime?{mimeType:mime}:{});const chunks=[];
     recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data);};
@@ -188,8 +195,9 @@ async function startRecording(){
   }catch(error){
     if(generation!==recordingGeneration)return;
     cleanupRecording();await openRecording({...recordContext});
-    if(error.name==='NotAllowedError'){document.querySelector('#mic-help').hidden=false;document.querySelector('#mic-status').textContent='마이크가 차단되어 있어요. 아래 권한 설정에서 허용해 주세요.';}
-    toast(error.name==='NotAllowedError'?'마이크 권한이 필요해요. 기기 설정에서 마이크를 허용해 주세요.':'마이크를 사용할 수 없어요. 다른 녹음 앱을 닫고 다시 시도해 주세요.');
+    const statusElement=document.querySelector('#mic-status'),state=await microphoneStatus().catch(()=>'unknown');
+    if(statusElement?.isConnected){statusElement.textContent=microphoneErrorMessage(error,state);document.querySelector('#mic-help').hidden=state==='granted';}
+    toast(microphoneErrorMessage(error,state));
   }
 }
 function finishRecording(){if(recorder?.state==='recording'){document.querySelector('#record-stop').disabled=true;recorder.stop();}}
